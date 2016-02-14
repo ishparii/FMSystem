@@ -1,10 +1,12 @@
 package facility;
 
+import constantValue.UsageType;
+
 public class Unit extends Facility {
-	int UnitNumber;
-	Usage usage;
-	
-	
+	private int unitNumber;
+	private UsageType usageType;
+
+
 	@Override
 	public Facility getFacilityInfo() {
 		// TODO Auto-generated method stub
@@ -14,7 +16,15 @@ public class Unit extends Facility {
 	@Override
 	public void addFacilityDetail() {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	public int getUnitNumber() {
+		return unitNumber;
+	}
+
+	public UsageType getUsageType() {
+		return usageType;
 	}
 
 }
