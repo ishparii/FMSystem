@@ -1,4 +1,4 @@
-package model.facilityMaintanence;
+package model.facilityMaintenance;
 
 import model.constantValue.MaintenanceType;
 

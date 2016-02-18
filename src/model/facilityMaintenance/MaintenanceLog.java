@@ -1,4 +1,4 @@
-package model.facilityMaintanence;
+package model.facilityMaintenance;
 
 public class MaintenanceLog {
     private Maintenance maintenance;

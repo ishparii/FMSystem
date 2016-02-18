@@ -1,4 +1,4 @@
-package model.facilityMaintanence;
+package model.facilityMaintenance;
 
 import java.util.Date;
 
