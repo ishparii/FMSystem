@@ -1,9 +1,17 @@
 package model.facility;
 
+import java.util.Date;
+
 import model.constantValue.UsageType;
 
 public class Unit extends Facility {
-	private int unitID;
+	public Unit(String name, Address address, String owner, Date date, Manager manager, int num, UsageType type) {
+		super(name, address, owner, date, manager);
+		this.unitNumber = num;
+		this.usageType = type;
+	}
+
+	//private int unitID;
 	private int unitNumber;
 	private UsageType usageType;
 
@@ -19,17 +27,24 @@ public class Unit extends Facility {
 		// TODO Auto-generated method stub
 
 	}
-	
-	public int getUnitID() {
-		return unitID;
-	}
 
 	public int getUnitNumber() {
 		return unitNumber;
 	}
 
+	public void setUnitNumber(int unitNumber) {
+		this.unitNumber = unitNumber;
+	}
+
 	public UsageType getUsageType() {
 		return usageType;
 	}
+
+	public void setUsageType(UsageType usageType) {
+		this.usageType = usageType;
+	}
+	
+
+
 
 }

@@ -9,12 +9,30 @@ public class Service {
     
     private Cost cost;
 
-    public int getServiceID() {
-        return serviceID;
-    }
+	public int getServiceID() {
+		return serviceID;
+	}
 
-    public Timestamp getServiceTime() {
-        return serviceTime;
-    }
+	public void setServiceID(int serviceID) {
+		this.serviceID = serviceID;
+	}
+
+	public Timestamp getServiceTime() {
+		return serviceTime;
+	}
+
+	public void setServiceTime(Timestamp serviceTime) {
+		this.serviceTime = serviceTime;
+	}
+
+	public Cost getCost() {
+		return cost;
+	}
+
+	public void setCost(Cost cost) {
+		this.cost = cost;
+	}
+
+
 
 }

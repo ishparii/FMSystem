@@ -9,19 +9,37 @@ public class Request {
 
     private Maintenance maintanence;
 
-    public int getRequestID() {
-        return requestID;
-    }
+	public int getRequestID() {
+		return requestID;
+	}
 
-    public Date getDateRequested() {
-        return dateRequested;
-    }
+	public void setRequestID(int requestID) {
+		this.requestID = requestID;
+	}
 
-    public String getTextDescription() {
-        return textDescription;
-    }
+	public Date getDateRequested() {
+		return dateRequested;
+	}
 
-    public Maintenance getMaintenance() {
-        return maintanence;
-    }
+	public void setDateRequested(Date dateRequested) {
+		this.dateRequested = dateRequested;
+	}
+
+	public String getTextDescription() {
+		return textDescription;
+	}
+
+	public void setTextDescription(String textDescription) {
+		this.textDescription = textDescription;
+	}
+
+	public Maintenance getMaintanence() {
+		return maintanence;
+	}
+
+	public void setMaintanence(Maintenance maintanence) {
+		this.maintanence = maintanence;
+	}
+
+
 }

@@ -8,32 +8,49 @@ public class Manager {
 	private String companyName;
 	private String phone;
 	private Address managerAddress;
-
+	
 	public int getManagerID() {
 		return managerID;
 	}
-
-	public String getFName() {
+	public void setManagerID(int managerID) {
+		this.managerID = managerID;
+	}
+	public String getfName() {
 		return fName;
 	}
-
-	public String getLName() {
+	public void setfName(String fName) {
+		this.fName = fName;
+	}
+	public String getlName() {
 		return lName;
 	}
-
+	public void setlName(String lName) {
+		this.lName = lName;
+	}
 	public long getSsn() {
 		return ssn;
 	}
-
+	public void setSsn(long ssn) {
+		this.ssn = ssn;
+	}
 	public String getCompanyName() {
 		return companyName;
 	}
-
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
 	public String getPhone() {
 		return phone;
 	}
-
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	public Address getManagerAddress() {
 		return managerAddress;
 	}
+	public void setManagerAddress(Address managerAddress) {
+		this.managerAddress = managerAddress;
+	}
+
+
 }

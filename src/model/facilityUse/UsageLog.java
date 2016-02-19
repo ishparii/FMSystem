@@ -30,4 +30,20 @@ public class UsageLog {
         // TODO
         return null;
     }
+
+	public Usage getUsage() {
+		return usage;
+	}
+
+	public void setUsage(Usage usage) {
+		this.usage = usage;
+	}
+
+	public Facility getFacility() {
+		return facility;
+	}
+
+	public void setFacility(Facility facility) {
+		this.facility = facility;
+	}
 }

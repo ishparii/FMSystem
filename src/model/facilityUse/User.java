@@ -8,24 +8,37 @@ public class User {
     private String lName;
     private String gender;
     private Address address;
+    
+	public int getUserID() {
+		return userID;
+	}
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
+	public String getfName() {
+		return fName;
+	}
+	public void setfName(String fName) {
+		this.fName = fName;
+	}
+	public String getlName() {
+		return lName;
+	}
+	public void setlName(String lName) {
+		this.lName = lName;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
-    public int getUserID() {
-        return userID;
-    }
 
-    public String getFName() {
-        return fName;
-    }
-
-    public String getLName() {
-        return lName;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
 }

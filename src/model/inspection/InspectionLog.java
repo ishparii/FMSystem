@@ -9,4 +9,12 @@ public class InspectionLog {
         // TODO 
         return null;
     }
+
+	public Inspection getInspection() {
+		return inspection;
+	}
+
+	public void setInspection(Inspection inspection) {
+		this.inspection = inspection;
+	}
 }
