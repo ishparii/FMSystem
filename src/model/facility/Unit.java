@@ -12,7 +12,6 @@ public class Unit extends Facility {
 		super();
 	}
 
-	private int unitNumber;
 	private String usageType;
 	
 	private Manager manager;
@@ -28,7 +27,6 @@ public class Unit extends Facility {
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 		info.put("owner", this.getOwner());
 		info.put("manager", this.getManager().getfName() + " " + this.getManager().getlName());
-		info.put("unit", Integer.toString(this.getUnitNumber()));
 		info.put("type", this.getUsageType());		
 		
 		for (Map.Entry<String, String> entry : info.entrySet()) {
@@ -36,14 +34,6 @@ public class Unit extends Facility {
 		}
 		
 		return info;
-	}
-
-	public int getUnitNumber() {
-		return unitNumber;
-	}
-
-	public void setUnitNumber(int unitNumber) {
-		this.unitNumber = unitNumber;
 	}
 
 	public String getUsageType() {
