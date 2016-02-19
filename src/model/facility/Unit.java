@@ -14,6 +14,9 @@ public class Unit extends Facility {
 
 	private int unitNumber;
 	private String usageType;
+	
+	private Manager manager;
+	private Address address;
 
 
 	@Override
@@ -23,7 +26,6 @@ public class Unit extends Facility {
 		info.put("name", this.getName());
 		info.put("address", this.getAddress().toString());
 		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-		info.put("constractionDate", df.format(this.getConstructionDate()));
 		info.put("owner", this.getOwner());
 		info.put("manager", this.getManager().getfName() + " " + this.getManager().getlName());
 		info.put("unit", Integer.toString(this.getUnitNumber()));
@@ -50,6 +52,22 @@ public class Unit extends Facility {
 
 	public void setUsageType(String usageType) {
 		this.usageType = usageType;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
+	public Manager getManager() {
+		return manager;
+	}
+
+	public void setManager(Manager manager) {
+		this.manager = manager;
 	}
 
 }

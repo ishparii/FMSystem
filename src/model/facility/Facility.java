@@ -10,10 +10,7 @@ import model.inspection.*;
 public abstract class Facility {
 	private int facilityID;
 	private String name;
-	private Address address;
 	private String owner;
-	private Date constructionDate;
-	private Manager manager;
 	private MaintenanceLog maintenanceLog;
 	private UsageLog usageLog;
 	private InspectionLog inspectionLog;
@@ -26,13 +23,6 @@ public abstract class Facility {
 
 	public abstract Map<String, String> getFacilityInfo();
 
-	public Manager getManager() {
-		return manager;
-	}
-
-	public void setManager(Manager manager) {
-		this.manager = manager;
-	}
 
 	public String getName() {
 		return name;
@@ -42,13 +32,6 @@ public abstract class Facility {
 		this.name = name;
 	}
 
-	public Address getAddress() {
-		return address;
-	}
-
-	public void setAddress(Address address) {
-		this.address = address;
-	}
 
 	public String getOwner() {
 		return owner;
@@ -56,14 +39,6 @@ public abstract class Facility {
 
 	public void setOwner(String owner) {
 		this.owner = owner;
-	}
-
-	public Date getConstructionDate() {
-		return constructionDate;
-	}
-
-	public void setConstructionDate(Date constructionDate) {
-		this.constructionDate = constructionDate;
 	}
 
 	public int getFacilityID() {

@@ -23,11 +23,7 @@ public class UnitGroup extends Facility {
 		Map<String, String> info = new HashMap<String, String>();
 		info.put("id", Integer.toString(this.getFacilityID()));
 		info.put("name", this.getName());
-		info.put("address", this.getAddress().toString());
-		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-		info.put("constractionDate", df.format(this.getConstructionDate()));
 		info.put("owner", this.getOwner());
-		info.put("manager", this.getManager().getfName() + " " + this.getManager().getlName());
 		info.put("type", "group");		
 		
 		for (Map.Entry<String, String> entry : info.entrySet()) {
@@ -57,7 +53,7 @@ public class UnitGroup extends Facility {
 
 	public Facility addNewFacility(Facility facility) {
 		facilities.add(facility);
-		System.out.println("Facility with ID: " + facility.getFacilityID() + " was added");
+		System.out.println("Facility with ID: " + facility.getFacilityID() + " was added.");
 		return facility;
 	}
 
