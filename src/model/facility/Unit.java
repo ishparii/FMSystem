@@ -1,13 +1,9 @@
 package model.facility;
 
-import java.util.Date;
-
-import model.constantValue.UsageType;
-
 public class Unit extends Facility {
 	private int unitID;
 	private int unitNumber;
-	private UsageType usageType;
+	private String usageType;
 
 
 	@Override
@@ -30,12 +26,20 @@ public class Unit extends Facility {
 		this.unitNumber = unitNumber;
 	}
 
-	public UsageType getUsageType() {
+	public String getUsageType() {
 		return usageType;
 	}
 
-	public void setUsageType(UsageType usageType) {
+	public void setUsageType(String usageType) {
 		this.usageType = usageType;
+	}
+
+	public int getUnitID() {
+		return unitID;
+	}
+
+	public void setUnitID(int unitID) {
+		this.unitID = unitID;
 	}
 	
 

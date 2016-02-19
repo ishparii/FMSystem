@@ -6,6 +6,7 @@ import model.facilityUse.*;
 import model.inspection.*;
 
 public abstract class Facility {
+	private int facilityID;
 	private String name;
 	private Address address;
 	private String owner;
@@ -64,5 +65,13 @@ public abstract class Facility {
 
 	public void setConstructionDate(Date constructionDate) {
 		this.constructionDate = constructionDate;
+	}
+
+	public int getFacilityID() {
+		return facilityID;
+	}
+
+	public void setFacilityID(int facilityID) {
+		this.facilityID = facilityID;
 	}
 }

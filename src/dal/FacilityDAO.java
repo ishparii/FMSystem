@@ -5,23 +5,28 @@ import java.sql.*;
 
 
 public class FacilityDAO {
-    public Unit getUnit(String unitID){
-        //get Unit
+    public Unit setUnit(Facility facility) throws SQLException {
+    	Connection connection = DatabaseHelper.getConnection();
+    	
+    	PreparedStatement GroupPS = null;
+    	
+
     	try {
-			Statement statement = DatabaseHelper.getConnection().createStatement();
-			String selectUnitQuery = "SELECT Unit_ID, UnitNumber, UsageType, Name, "
-					+ "Owner, ConstructionDate FROM Unit WHERE Unit_ID = '" + unitID + "'";
+			// set Group
+			String insertGroupQuery = "INSERT INTO Facility(Facility_ID, FacilityName, FacilityOwner"
+					+ "UsageType, ConstructionDate, IsGroup, ParentFacilityID) VALUEs "
+					+ "(?, ?, ?, ?, ?, ?, ?)";
 			
-			ResultSet customerResultSet = statement.executeQuery(selectUnitQuery);
-			
-			Unit unit = new Unit();
-			while(customerResultSet.next()) {
-				
-			}
-			
+			GroupPS = connection.prepareStatement(insertGroupQuery);
+			GroupPS.setInt(1, facility.getFacilityID());
+			GroupPS.setString(2, facility.getName());
+			GroupPS.setString(3, facility.getOwner());
 			
 			
-			return unit;
+			
+			
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
