@@ -1,6 +1,8 @@
 package model.facility;
 
-import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 import model.constantValue.UsageType;
 
@@ -9,21 +11,28 @@ public class Unit extends Facility {
 		super();
 	}
 
-	private int unitID;
 	private int unitNumber;
-	private UsageType usageType;
+	private String usageType;
 
 
 	@Override
-	public Facility getFacilityInfo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void addFacilityDetail() {
-		// TODO Auto-generated method stub
-
+	public Map<String, String> getFacilityInfo() {
+		Map<String, String> info = new HashMap<String, String>();
+		info.put("id", Integer.toString(this.getFacilityID()));
+		info.put("name", this.getName());
+		info.put("address", this.getAddress().toString());
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		info.put("constractionDate", df.format(this.getConstructionDate()));
+		info.put("owner", this.getOwner());
+		info.put("manager", this.getManager().getfName() + " " + this.getManager().getlName());
+		info.put("unit", Integer.toString(this.getUnitNumber()));
+		info.put("type", this.getUsageType());		
+		
+		for (Map.Entry<String, String> entry : info.entrySet()) {
+			System.out.println(entry.getKey() + ": " + entry.getValue());
+		}
+		
+		return info;
 	}
 
 	public int getUnitNumber() {
@@ -34,15 +43,12 @@ public class Unit extends Facility {
 		this.unitNumber = unitNumber;
 	}
 
-	public UsageType getUsageType() {
+	public String getUsageType() {
 		return usageType;
 	}
 
-	public void setUsageType(UsageType usageType) {
+	public void setUsageType(String usageType) {
 		this.usageType = usageType;
 	}
-	
-
-
 
 }

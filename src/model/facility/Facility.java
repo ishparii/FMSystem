@@ -1,19 +1,22 @@
 package model.facility;
 
 import java.util.Date;
+import java.util.Map;
+
 import model.facilityMaintenance.*;
 import model.facilityUse.*;
 import model.inspection.*;
 
 public abstract class Facility {
-	private String name;
+	private String facilityName;
 	private Address address;
-	private String owner;
+	private String facilityOwner;
 	private Date constructionDate;
 	private Manager manager;
 	private MaintenanceLog maintenanceLog;
 	private UsageLog usageLog;
 	private InspectionLog inspectionLog;
+	private int facilityID;
 	
 	public Facility() {
 		maintenanceLog = new MaintenanceLog();
@@ -21,10 +24,7 @@ public abstract class Facility {
 		inspectionLog = new InspectionLog();
 	}
 
-	public abstract Facility getFacilityInfo();
-	public abstract void addFacilityDetail();
-
-
+	public abstract Map<String,String> getFacilityInfo();
 
 	public Manager getManager() {
 		return manager;
@@ -35,11 +35,11 @@ public abstract class Facility {
 	}
 
 	public String getName() {
-		return name;
+		return facilityName;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.facilityName = name;
 	}
 
 	public Address getAddress() {
@@ -51,11 +51,11 @@ public abstract class Facility {
 	}
 
 	public String getOwner() {
-		return owner;
+		return facilityOwner;
 	}
 
 	public void setOwner(String owner) {
-		this.owner = owner;
+		this.facilityOwner = owner;
 	}
 
 	public Date getConstructionDate() {
@@ -64,5 +64,13 @@ public abstract class Facility {
 
 	public void setConstructionDate(Date constructionDate) {
 		this.constructionDate = constructionDate;
+	}
+
+	public int getFacilityID() {
+		return facilityID;
+	}
+
+	public void setFacilityID(int facilityID) {
+		this.facilityID = facilityID;
 	}
 }
