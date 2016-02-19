@@ -1,6 +1,8 @@
 package model.facility;
 
 import java.util.Date;
+import java.util.Map;
+
 import model.facilityMaintenance.*;
 import model.facilityUse.*;
 import model.inspection.*;
@@ -22,10 +24,7 @@ public abstract class Facility {
 		inspectionLog = new InspectionLog();
 	}
 
-	public abstract Facility getFacilityInfo();
-	public abstract void addFacilityDetail();
-
-
+	public abstract Map<String, String> getFacilityInfo();
 
 	public Manager getManager() {
 		return manager;

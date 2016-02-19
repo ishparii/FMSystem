@@ -4,10 +4,8 @@ public class Manager {
 	private int managerID;
 	private String fName;
 	private String lName;
-	private long ssn;
 	private String companyName;
 	private String phone;
-	private Address managerAddress;
 	
 	public int getManagerID() {
 		return managerID;
@@ -27,12 +25,7 @@ public class Manager {
 	public void setlName(String lName) {
 		this.lName = lName;
 	}
-	public long getSsn() {
-		return ssn;
-	}
-	public void setSsn(long ssn) {
-		this.ssn = ssn;
-	}
+
 	public String getCompanyName() {
 		return companyName;
 	}
@@ -45,12 +38,4 @@ public class Manager {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
-	public Address getManagerAddress() {
-		return managerAddress;
-	}
-	public void setManagerAddress(Address managerAddress) {
-		this.managerAddress = managerAddress;
-	}
-
-
 }
