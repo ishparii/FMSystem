@@ -1,11 +1,10 @@
-package model.facilityMaintanence;
+package model.facilityMaintenance;
 
 public class Cost {
 	private int costID;
 	private float laborCost;
 	private float materialCost;
 	private float extra;
-	
 	public int getCostID() {
 		return costID;
 	}

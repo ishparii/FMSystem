@@ -1,4 +1,4 @@
-package model.facilityMaintanence;
+package model.facilityMaintenance;
 
 import java.sql.Timestamp;
 import java.util.Date;

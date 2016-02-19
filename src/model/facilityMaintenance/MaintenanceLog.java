@@ -1,10 +1,8 @@
-package model.facilityMaintanence;
+package model.facilityMaintenance;
 
 public class MaintenanceLog {
     private Maintenance maintenance;
     private Request request;
-
-
 
     public Object listFacilityProblems() {
         // TODO

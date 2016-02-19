@@ -1,7 +1,7 @@
 package model.facility;
 
 import java.util.Date;
-import model.facilityMaintanence.*;
+import model.facilityMaintenance.*;
 import model.facilityUse.*;
 import model.inspection.*;
 
