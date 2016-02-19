@@ -20,23 +20,45 @@ public class Maintenance {
         return null;
     }
 
-    public int getMaintanenceId() {
-        return maintenanceID;
-    }
+	public int getMaintenanceID() {
+		return maintenanceID;
+	}
 
-    public String getStatus() {
-        return status;
-    }
+	public void setMaintenanceID(int maintenanceID) {
+		this.maintenanceID = maintenanceID;
+	}
 
-    public boolean getPriority() {
-        return priority;
-    }
+	public String getStatus() {
+		return status;
+	}
 
-    public MaintenanceType getMaintenanceType() {
-        return maintenanceType;
-    }
+	public void setStatus(String status) {
+		this.status = status;
+	}
 
-    public String getIssueDescription() {
-        return issueDescription;
-    }
+	public boolean isPriority() {
+		return priority;
+	}
+
+	public void setPriority(boolean priority) {
+		this.priority = priority;
+	}
+
+	public MaintenanceType getMaintenanceType() {
+		return maintenanceType;
+	}
+
+	public void setMaintenanceType(MaintenanceType maintenanceType) {
+		this.maintenanceType = maintenanceType;
+	}
+
+	public String getIssueDescription() {
+		return issueDescription;
+	}
+
+	public void setIssueDescription(String issueDescription) {
+		this.issueDescription = issueDescription;
+	}
+
+
 }

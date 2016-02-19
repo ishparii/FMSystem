@@ -4,14 +4,6 @@ public class MaintenanceLog {
     private Maintenance maintenance;
     private Request request;
 
-    public Maintenance getMaintenance() {
-        return maintenance;
-    }
-
-    public Request getRequest() {
-        return request;
-    }
-
     public Object listFacilityProblems() {
         // TODO
         return null;
@@ -41,4 +33,20 @@ public class MaintenanceLog {
         // TODO
         return null;
     }
+
+	public Maintenance getMaintenance() {
+		return maintenance;
+	}
+
+	public void setMaintenance(Maintenance maintenance) {
+		this.maintenance = maintenance;
+	}
+
+	public Request getRequest() {
+		return request;
+	}
+
+	public void setRequest(Request request) {
+		this.request = request;
+	}
 }
