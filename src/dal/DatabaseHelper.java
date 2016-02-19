@@ -4,7 +4,7 @@ import java.sql.*;
 //import javax.sql.*;
 //import java.util.Properties;
 
-public class Database {
+public class DatabaseHelper {
 	// JDBC driver name and database URL
 	static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
 	static final String DB_URL = "jdcb:mysql:3306//localhost/facilityMS";
@@ -12,7 +12,7 @@ public class Database {
 	static final String user = "root";
 	static final String password = "K02200059";
 	
-	public Connection getConnetction() throws SQLException {
+	public static Connection getConnection() throws SQLException {
 		Connection connection = null;
 //		Properties connectionProperties = new Properties();	
 //		
