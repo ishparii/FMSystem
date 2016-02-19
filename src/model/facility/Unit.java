@@ -9,7 +9,7 @@ public class Unit extends Facility {
 		super();
 	}
 
-	//private int unitID;
+	private int unitID;
 	private int unitNumber;
 	private UsageType usageType;
 

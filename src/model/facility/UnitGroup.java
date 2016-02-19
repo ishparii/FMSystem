@@ -7,6 +7,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class UnitGroup extends Facility {
+
 	public UnitGroup(Facility... facilities) {
 		super();
 		this.facilities = Arrays.asList(facilities);

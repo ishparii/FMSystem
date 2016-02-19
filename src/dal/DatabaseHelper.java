@@ -12,7 +12,7 @@ public class DatabaseHelper {
 	static final String user = "root";
 	static final String password = "K02200059";
 	
-	public Connection getConnetction() throws SQLException {
+	public static Connection getConnection() throws SQLException {
 		Connection connection = null;
 //		Properties connectionProperties = new Properties();	
 //		
@@ -24,3 +24,4 @@ public class DatabaseHelper {
 		return connection;
 	}	
 }
+
