@@ -15,12 +15,7 @@ public abstract class Facility {
 	private UsageLog usageLog;
 	private InspectionLog inspectionLog;
 	
-	public Facility(String name, Address address, String owner, Date date, Manager manager) {
-		this.name = name;
-		this.address = address;
-		this.owner = owner;
-		this.constructionDate = date;
-		this.manager = manager;
+	public Facility() {
 		maintenanceLog = new MaintenanceLog();
 		usageLog = new UsageLog();
 		inspectionLog = new InspectionLog();

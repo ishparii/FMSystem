@@ -1,16 +1,19 @@
 package model.facility;
 
+
+import java.util.Arrays;
 import java.util.Date;
 import java.util.LinkedList;
+import java.util.List;
 
 public class UnitGroup extends Facility {
-	public UnitGroup(String name, Address address, String owner, Date date, Manager manager, Facility facility) {
-		super(name, address, owner, date, manager);
-		this.facility = facility;
+	public UnitGroup(Facility... facilities) {
+		super();
+		this.facilities = Arrays.asList(facilities);
 	}
 
 	private int unitGroupID;
-	private Facility facility;
+	private List<Facility> facilities;
 
 	@Override
 	public Facility getFacilityInfo() {
@@ -34,14 +37,13 @@ public class UnitGroup extends Facility {
 		return null;
 	}
 
-	public Facility addNewFacility() {
+	public Facility addNewFacility(Facility facility) {
 		// TODO add a new Facility and return it
 		return facility;
 	}
 
-	public Facility removeFacility(int facilityID){
+	public void removeFacility(int facilityID){
 		// TODO remove a facility and return it
-		return facility;
 	}
 
 	public int getUnitGroupID() {

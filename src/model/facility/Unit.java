@@ -5,10 +5,8 @@ import java.util.Date;
 import model.constantValue.UsageType;
 
 public class Unit extends Facility {
-	public Unit(String name, Address address, String owner, Date date, Manager manager, int num, UsageType type) {
-		super(name, address, owner, date, manager);
-		this.unitNumber = num;
-		this.usageType = type;
+	public Unit() {
+		super();
 	}
 
 	//private int unitID;
