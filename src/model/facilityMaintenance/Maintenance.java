@@ -1,12 +1,10 @@
 package model.facilityMaintenance;
 
-import model.constantValue.MaintenanceType;
-
 public class Maintenance {
     private int maintenanceID;
     private String status;
     private boolean priority;
-    private MaintenanceType maintenanceType;
+    private String maintenanceType;
     private String issueDescription;
 
     private Schedule schedule;
@@ -44,11 +42,11 @@ public class Maintenance {
 		this.priority = priority;
 	}
 
-	public MaintenanceType getMaintenanceType() {
+	public String getMaintenanceType() {
 		return maintenanceType;
 	}
 
-	public void setMaintenanceType(MaintenanceType maintenanceType) {
+	public void setMaintenanceType(String maintenanceType) {
 		this.maintenanceType = maintenanceType;
 	}
 

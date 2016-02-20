@@ -1,20 +1,29 @@
 package model.inspection;
 
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 public class InspectionLog {
-    private Inspection inspection;
+   
+    private List<Inspection> inspections;
+    
+    public InspectionLog(Inspection ... inspection) {
+    	this.setInspections(Arrays.asList(inspection));
+    }
 
-    public LinkedList listInspection() {
+    public LinkedList<Inspection> listInspection() {
         // TODO 
         return null;
     }
 
-	public Inspection getInspection() {
-		return inspection;
+	public List<Inspection> getInspections() {
+		return inspections;
 	}
 
-	public void setInspection(Inspection inspection) {
-		this.inspection = inspection;
+	public void setInspections(List<Inspection> inspections) {
+		this.inspections = inspections;
 	}
+
+
 }

@@ -1,10 +1,16 @@
 package model.facilityUse;
 
+import java.util.Arrays;
+import java.util.List;
+
 import model.facility.*;
 
 public class UsageLog {
-    private Usage usage;
-    private Facility facility;
+    private List<Usage> usages;
+	
+	public UsageLog(Usage ... usage) {
+    	this.setUsages(Arrays.asList(usage));
+    }
 
     public Object calcUsageRate() {
         // TODO
@@ -31,19 +37,12 @@ public class UsageLog {
         return null;
     }
 
-	public Usage getUsage() {
-		return usage;
+	public List<Usage> getUsages() {
+		return usages;
 	}
 
-	public void setUsage(Usage usage) {
-		this.usage = usage;
+	public void setUsages(List<Usage> usages) {
+		this.usages = usages;
 	}
 
-	public Facility getFacility() {
-		return facility;
-	}
-
-	public void setFacility(Facility facility) {
-		this.facility = facility;
-	}
 }

@@ -5,6 +5,7 @@ public class Cost {
 	private float laborCost;
 	private float materialCost;
 	private float extra;
+	
 	public int getCostID() {
 		return costID;
 	}

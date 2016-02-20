@@ -2,11 +2,9 @@ package model.facilityUse;
 
 import java.util.Date;
 
-import model.constantValue.UsageType;
-
 public class Usage {
     private int usageID;
-    private UsageType usageType;
+    private String usageType;
     private Date startDate;
     private Date endDate;
     private User user;
@@ -17,10 +15,10 @@ public class Usage {
 	public void setUsageID(int usageID) {
 		this.usageID = usageID;
 	}
-	public UsageType getUsageType() {
+	public String getUsageType() {
 		return usageType;
 	}
-	public void setUsageType(UsageType usageType) {
+	public void setUsageType(String usageType) {
 		this.usageType = usageType;
 	}
 	public Date getStartDate() {

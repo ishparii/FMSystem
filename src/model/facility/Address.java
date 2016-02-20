@@ -6,6 +6,7 @@ public class Address {
 	private int streetNumber;
 	private String street;
 	private String city;
+	private String stateProvince;
 	private int zipCode;
 	
 	public int getAddressID() {
@@ -43,6 +44,12 @@ public class Address {
 	}
 	public void setZipCode(int zipCode) {
 		this.zipCode = zipCode;
+	}
+	public String getStateProvince() {
+		return stateProvince;
+	}
+	public void setStateProvince(String stateProvince) {
+		this.stateProvince = stateProvince;
 	}
 
 

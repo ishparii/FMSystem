@@ -1,8 +1,16 @@
 package model.facilityMaintenance;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class MaintenanceLog {
-    private Maintenance maintenance;
     private Request request;
+    
+    private List<Request> requests;
+    
+    public MaintenanceLog(Request ... request) {
+    	setRequests(Arrays.asList(request));
+    }
 
     public Object listFacilityProblems() {
         // TODO
@@ -34,19 +42,19 @@ public class MaintenanceLog {
         return null;
     }
 
-	public Maintenance getMaintenance() {
-		return maintenance;
-	}
-
-	public void setMaintenance(Maintenance maintenance) {
-		this.maintenance = maintenance;
-	}
-
 	public Request getRequest() {
 		return request;
 	}
 
 	public void setRequest(Request request) {
 		this.request = request;
+	}
+
+	public List<Request> getRequests() {
+		return requests;
+	}
+
+	public void setRequests(List<Request> requests) {
+		this.requests = requests;
 	}
 }
