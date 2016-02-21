@@ -7,21 +7,46 @@ public class Request {
     private Date dateRequested;
     private String textDescription;
 
-    private Maintenance maintanence;
+    private Maintenance maintenance;
+    private int FacilityID;
 
-    public int getRequestID() {
-        return requestID;
-    }
+	public int getRequestID() {
+		return requestID;
+	}
 
-    public Date getDateRequested() {
-        return dateRequested;
-    }
+	public void setRequestID(int requestID) {
+		this.requestID = requestID;
+	}
 
-    public String getTextDescription() {
-        return textDescription;
-    }
+	public Date getDateRequested() {
+		return dateRequested;
+	}
 
-    public Maintenance getMaintenance() {
-        return maintanence;
-    }
+	public void setDateRequested(Date dateRequested) {
+		this.dateRequested = dateRequested;
+	}
+
+	public String getTextDescription() {
+		return textDescription;
+	}
+
+	public void setTextDescription(String textDescription) {
+		this.textDescription = textDescription;
+	}
+
+	public Maintenance getMaintenance() {
+		return maintenance;
+	}
+
+	public void setMaintenance(Maintenance maintanence) {
+		this.maintenance = maintanence;
+	}
+
+	public int getFacilityID() {
+		return FacilityID;
+	}
+
+	public void setFacilityID(int facilityID) {
+		FacilityID = facilityID;
+	}
 }

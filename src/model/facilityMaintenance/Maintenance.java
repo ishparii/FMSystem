@@ -12,6 +12,11 @@ public class Maintenance {
     public Schedule getSchedule() {
         return schedule;
     }
+    
+
+    public Schedule setSchedule(Schedule schedule) {
+        return schedule;
+    }
 
     public Object scheduleMaintenance() {
         // TODO
