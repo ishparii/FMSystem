@@ -50,17 +50,17 @@ public class InspectionDAO {
 			i.setInspector(iRS.getString("Inspector"));
 			i.setOutcome(iRS.getString("Outcome"));
 			
-			int r_id = iRS.getInt("Room_ID");
-			int b_id = iRS.getInt("Building_ID");
-			int g_id = iRS.getInt("Group_ID");
-			
-			if ((Integer)r_id != null) {
-				i.setFacilityID(r_id);
-			} else if ((Integer)b_id != null) {
-				i.setFacilityID(b_id);
-			} else {
-				i.setFacilityID(g_id);
-			}
+//			int r_id = iRS.getInt("Room_ID");
+//			int b_id = iRS.getInt("Building_ID");
+//			int g_id = iRS.getInt("Group_ID");
+//			
+//			if ((Integer)r_id != null) {
+//				i.setFacilityID(r_id);
+//			} else if ((Integer)b_id != null) {
+//				i.setFacilityID(b_id);
+//			} else {
+//				i.setFacilityID(g_id);
+//			}
 		}
 		iRS.close();
 		st.close();

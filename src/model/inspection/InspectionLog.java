@@ -15,7 +15,9 @@ public class InspectionLog {
     public List<Inspection> listInspection() {
     	DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
         for (Inspection i : inspections) {        	
-        	System.out.println("Inspection " + i.getInspectionID() + " of " + i.getInspectionType() + " type was done by " + i.getInspector() + " on "+ df.format(i.getInspectionDate()) + " with " + i.getOutcome() + " outcome.");
+        	System.out.println("Inspection " + i.getInspectionID() + " of " + i.getInspectionType() + 
+        			" type was done by " + i.getInspector() + " on "+ df.format(i.getInspectionDate()) + 
+        			" with " + i.getOutcome() + " outcome.");
         }
         return inspections;
     }

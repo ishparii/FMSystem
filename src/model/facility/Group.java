@@ -3,6 +3,7 @@ package model.facility;
 import java.util.*;
 
 import model.facilityMaintenance.MaintenanceLog;
+import model.facilityUse.Usage;
 import model.facilityUse.UsageLog;
 import model.inspection.InspectionLog;
 
@@ -107,10 +108,18 @@ public class Group implements Groups{
 //		System.out.println("Facility with ID: " + id + " was not found in the group " + getFacilityID());
 	}
 
+	//returns a list of buildings that are not currently in use
 	@Override
 	public List<Facility> requestAvailFacility() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Facility> availableFacility = new ArrayList<>();
+		for(Facility f : buildings) {
+			Usage u = f.getUsageLog().getUsages().get(0);
+			//available facility
+			if (u.getEndDate() != null) {
+				availableFacility.add(f);
+			}
+		}
+		return availableFacility;
 	}
 }
 

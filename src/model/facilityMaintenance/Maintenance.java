@@ -1,8 +1,10 @@
 package model.facilityMaintenance;
 
+import java.util.*;
+
 public class Maintenance {
     private int maintenanceID;
-    private String status;
+    private String status = "pending";
     private boolean priority;
     private String maintenanceType;
     private String issueDescription;
@@ -18,9 +20,12 @@ public class Maintenance {
         return schedule;
     }
 
-    public Object scheduleMaintenance() {
-        // TODO
-        return null;
+    //creates new Schedule object and sets schedule time
+    public Schedule scheduleMaintenance(Date date) {
+    	Schedule s = new Schedule(date);
+        setSchedule(s);
+        setStatus("scheduled");
+        return s;
     }
 
 	public int getMaintenanceID() {

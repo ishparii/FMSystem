@@ -8,7 +8,11 @@ public class Request {
     private String textDescription;
 
     private Maintenance maintenance;
-    private int FacilityID;
+//    private int FacilityID;
+    
+    public Request() {
+    	setMaintenance(new Maintenance());
+    }
 
 	public int getRequestID() {
 		return requestID;
@@ -42,11 +46,11 @@ public class Request {
 		this.maintenance = maintanence;
 	}
 
-	public int getFacilityID() {
-		return FacilityID;
-	}
-
-	public void setFacilityID(int facilityID) {
-		FacilityID = facilityID;
-	}
+//	public int getFacilityID() {
+//		return FacilityID;
+//	}
+//
+//	public void setFacilityID(int facilityID) {
+//		FacilityID = facilityID;
+//	}
 }

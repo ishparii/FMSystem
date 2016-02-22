@@ -9,7 +9,7 @@ public class Inspection {
     private String inspector;
     private String outcome;
     
-    private int facilityID;  // Id of the facility that the inspection took place 
+    //private int facilityID;  // Id of the facility that the inspection took place 
     
 	public int getInspectionID() {
 		return inspectionID;
@@ -41,12 +41,12 @@ public class Inspection {
 	public void setOutcome(String outcome) {
 		this.outcome = outcome;
 	}
-	public int getFacilityID() {
-		return facilityID;
-	}
-	public void setFacilityID(int facilityID) {
-		this.facilityID = facilityID;
-	}
+//	public int getFacilityID() {
+//		return facilityID;
+//	}
+//	public void setFacilityID(int facilityID) {
+//		this.facilityID = facilityID;
+//	}
 
 
 }

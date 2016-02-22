@@ -30,6 +30,4 @@ public class Cost {
 	public void setExtra(float extra) {
 		this.extra = extra;
 	}
-
-
 }

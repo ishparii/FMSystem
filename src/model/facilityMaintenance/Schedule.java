@@ -6,6 +6,12 @@ public class Schedule {
 	private int scheduleID;
     private Date dateScheduled;
     private Service service;
+    
+    public Schedule(Date date) {
+    	setDateScheduled(date);
+    	setService(new Service());
+    }
+    
 	public int getScheduleID() {
 		return scheduleID;
 	}
@@ -23,7 +29,5 @@ public class Schedule {
 	}
 	public void setService(Service service) {
 		this.service = service;
-	}
-    
-
+	} 
 }
