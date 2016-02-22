@@ -1,40 +1,85 @@
 package model.facilityUse;
 
-import java.util.Arrays;
-import java.util.List;
-
-import model.facility.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class UsageLog {
     private List<Usage> usages;
+    private DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 	
 	public UsageLog(Usage ... usage) {
     	this.setUsages(Arrays.asList(usage));
     }
 
-    public Object calcUsageRate() {
-        // TODO
-        return null;
+	//calculates usage rate in percentages during given interval
+	//assuming facility can have one usage at a time
+    public double calcUsageRate(Date start, Date end) {
+    	int diffInDays = (int) ((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
+    	int usageDays = 0;
+    	for (Usage u : usages) {
+    		Date usageStartDate = u.getStartDate();
+    		if (usageStartDate.after(start) && usageStartDate.before(end)) {
+    			Date usageEndDate = u.getEndDate();
+    			int currentUsageInDays = 0;
+        		if (usageEndDate != null && usageEndDate.before(end)) {
+        			currentUsageInDays = (int) ((usageEndDate.getTime() - usageStartDate.getTime()) / (1000 * 60 * 60 * 24));        			
+        		} else {
+        			currentUsageInDays = (int) ((end.getTime() - usageStartDate.getTime()) / (1000 * 60 * 60 * 24));
+        		}
+        		usageDays += currentUsageInDays;
+    		}
+    	}
+        return ((double)usageDays)/diffInDays*100.0;
     }
 
-    public Object listActualUsage() {
-        // TODO
-        return null;
+    //prints to console info about all usages of the facility
+    //and returns the list of them
+    public List<Usage> listActualUsage() {
+    	for (Usage u : usages) {        	
+        	System.out.print(u.getUser().getfName() + " " + u.getUser().getlName() + 
+        			" started using this facility on " + df.format(u.getStartDate()) + " for " +
+        			u.getUsageType() + " purpose");
+        	if (u.getEndDate() != null) {
+        		System.out.println(" and was using it until " + df.format(u.getEndDate()));
+        	} else {
+        		System.out.println();
+        	}
+        }
+        return usages;
     }
 
-    public Object vacateFacility(Facility facility) {
-        // TODO
-        return facility;
+    //sets the most recent Usage end usage date to todays date
+    //and return that Usage
+    public Usage vacateFacility() {
+        Usage currentUsage = usages.get(0);
+        if (currentUsage.getEndDate() == null) {
+        	Date todaysDate = Calendar.getInstance().getTime();
+        	currentUsage.setEndDate(todaysDate);
+        	System.out.println("The facility has been vacated!");
+        } else {
+        	System.out.println("The facility is currently vacant!");
+        }
+        return currentUsage;
     }
 
-    public Object assignFacilityToUse(Facility facility) {
-        // TODO
-        return facility;
+    //creates new Usage object
+    //and returns it back
+    public Usage assignFacilityToUse() {
+        Usage newUsage = new Usage();
+        usages.add(0, newUsage);
+        return newUsage;
     }
 
-    public Object isInUseDuringInterval() {
-        // TODO
-        return null;
+    //returns true if the facility was in use (even partially) during given interval 
+    public boolean isInUseDuringInterval(Date start, Date end) {
+    	for (Usage u : usages) {
+    		Date usageStartDate = u.getStartDate();
+    		if (usageStartDate.after(start) && usageStartDate.before(end)) {
+    			return true;
+    		}
+    	}
+        return false;
     }
 
 	public List<Usage> getUsages() {
