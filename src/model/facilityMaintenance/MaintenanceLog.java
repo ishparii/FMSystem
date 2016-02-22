@@ -2,9 +2,9 @@ package model.facilityMaintenance;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+
+import model.facilityUse.Usage;
 
 public class MaintenanceLog {
     //private Request request;
@@ -17,7 +17,7 @@ public class MaintenanceLog {
 
     //returns a list of requests with not scheduled maintenances
     //and prints to console information about them
-    public Object listFacilityProblems() {
+    public List<Request> listFacilityProblems() {
     	List<Request> problems = new ArrayList<>();
         for (Request r : requests) {
         	if (r.getMaintenance().getStatus().equals("pending")) {
@@ -60,14 +60,32 @@ public class MaintenanceLog {
         return maintenances;
     }
 
-    public Object calcDowntime() {
-        // TODO
-        return null;
+    //calculates downtime of facility in days for a given period of time
+    public double calcDowntime(Date start, Date end) {
+    	double downtime = 0;
+    	for (Request r: requests) {
+    		Date rDate = r.getDateRequested();
+    		if (rDate.after(start) && rDate.before(end)) {
+    			double currentDowntimeInDays = 0;
+        		if (r.getMaintenance().getSchedule() != null) {
+        			Date scheduleDate = r.getMaintenance().getSchedule().getDateScheduled();
+        			if (scheduleDate.before(end)) {
+        				currentDowntimeInDays = (scheduleDate.getTime() - rDate.getTime()) / (1000.0 * 60 * 60 * 24);
+        			} else {
+        				currentDowntimeInDays = (end.getTime() - rDate.getTime()) / (1000.0 * 60 * 60 * 24);
+        			}
+        			downtime += currentDowntimeInDays;
+        		}
+    		}
+    	}
+        return downtime;
     }
 
-    public Object calcProblemRateForFacility() {
-        // TODO
-        return null;
+    //calculates percentage of downtime from the given perion of time 
+    public double calcProblemRateForFacility(Date start, Date end) {
+    	double diffInDays = (end.getTime() - start.getTime()) / (1000.0 * 60 * 60 * 24);
+    	double downtime = calcDowntime(start, end);
+        return downtime / diffInDays * 100.0;
     }
 
 	public List<Request> getRequests() {
