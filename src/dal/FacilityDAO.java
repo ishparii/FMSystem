@@ -38,7 +38,7 @@ public class FacilityDAO {
 			// set Room	
 			for (Facility fr : b.getRooms()) {
 				String st3 = "INSERT INTO Room (Room_ID, RoomName, RoomOwner, UsageType, Building_ID"
-						+ " VALUES (?, ?, ?, ?)";
+						+ " VALUES (?, ?, ?, ?, ?)";
 				rPS = connection.prepareStatement(st3);
 				Room r = (Room)fr;
 				rPS.setInt(1, r.getFacilityID());

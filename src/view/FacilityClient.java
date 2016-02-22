@@ -1,5 +1,8 @@
 package view;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import dal.*;
 import model.facility.Address;
 import model.facility.Building;
@@ -10,7 +13,12 @@ import model.facility.Room;
 public class FacilityClient{
 	
 	public static void main (String args[]) throws Exception {
-		DatabaseHelper dh = new DatabaseHelper();
+		
+		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-mm-dd");
+		Date date1 = fmt.parse("2009-02-13");
+		Date date2 = fmt.parse("2013-10-10");
+		
+		
 		FacilityDAO dao1 = new FacilityDAO();
 		
 		Manager manager = new Manager();
@@ -31,7 +39,8 @@ public class FacilityClient{
 		building1.setFacilityID(10);
 		building1.setBuildingName("Hancock Tower");
 		building1.setBuildingOwner("Chandler");
-		building1.setConstructionDate(null);		
+//		building1.setConstructionDate(null);	
+		building1.setConstructionDate(date1);
 		
 		group.addNewFacility(building1);
 		
@@ -63,7 +72,8 @@ public class FacilityClient{
 		building2.setFacilityID(11);
 		building2.setBuildingName("Sears Tower");
 		building2.setBuildingOwner("Mark");
-		building2.setConstructionDate(null);
+//		building2.setConstructionDate(null);
+		building2.setConstructionDate(date2);
 		
 		group.addNewFacility(building2);
 		
