@@ -1,8 +1,8 @@
 package model.inspection;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 public class InspectionLog {
    
@@ -12,14 +12,17 @@ public class InspectionLog {
     	this.setInspections(Arrays.asList(inspection));
     }
 
-    public LinkedList<Inspection> listInspection() {
-        // TODO 
-        return null;
+    public List<Inspection> listInspection() {
+    	DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+        for (Inspection i : inspections) {        	
+        	System.out.println("Inspection " + i.getInspectionID() + " of " + i.getInspectionType() + " type was done by " + i.getInspector() + " on "+ df.format(i.getInspectionDate()) + " with " + i.getOutcome() + " outcome.");
+        }
+        return inspections;
     }
 
-	public List<Inspection> getInspections() {
-		return inspections;
-	}
+//	public List<Inspection> getInspections() {
+//		return inspections;
+//	}
 
 	public void setInspections(List<Inspection> inspections) {
 		this.inspections = inspections;
