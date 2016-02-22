@@ -19,31 +19,33 @@ public class FacilityDAO {
 		String st1 = "INSERT INTO BuildingGroup (Group_ID, GroupName, GroupOwner) VALUES "
 				+ "(?, ?, ?)";		
 		gPS = connection.prepareStatement(st1);
-		gPS.setInt(1, group.getGroupID());
+		gPS.setInt(1, group.getFacilityID());
 		gPS.setString(2, group.getGroupName());
 		gPS.setString(3, group.getGroupOwner());
 			
 		// set Building	
-		for (Building b : group.getBuildings()) {
+		for (Facility f : group.getBuildings()) {
 			String st2 = "INSERT INTO Building (Building_ID, BuildingName, BuildingOwner,"
 					+ "ConstructionDate, Group_ID) VALUES (?, ?, ?, ?, ?)";
 			bPS = connection.prepareStatement(st2);
-			bPS.setInt(1, b.getBuildingID());
+			Building b = (Building)f;
+			bPS.setInt(1, b.getFacilityID());
 			bPS.setString(2, b.getBuildingName());
 			bPS.setString(3, b.getBuildingOwner());
 			bPS.setDate(4, new java.sql.Date(b.getConstructionDate().getTime()));
-			bPS.setInt(5, group.getGroupID());
+			bPS.setInt(5, group.getFacilityID());
 			
 			// set Room	
-			for (Room r : b.getRooms()) {
+			for (Facility fr : b.getRooms()) {
 				String st3 = "INSERT INTO Room (Room_ID, RoomName, RoomOwner, UsageType, Building_ID"
 						+ " VALUES (?, ?, ?, ?)";
 				rPS = connection.prepareStatement(st3);
-				rPS.setInt(1, r.getRoomID());
+				Room r = (Room)fr;
+				rPS.setInt(1, r.getFacilityID());
 				rPS.setString(2, r.getRoomName());
 				rPS.setString(3, r.getRoomOwner());
 				rPS.setString(4, r.getUsageType());
-				rPS.setInt(5, r.getRoomID());
+				rPS.setInt(5, r.getFacilityID());
 				
 				//set Address
 				String st4 = "INSERT INTO Address (Address_ID, UnitNumber, StreetNumber, "
@@ -55,7 +57,7 @@ public class FacilityDAO {
 				aPS.setString(4, r.getAddress().getStreet());
 				aPS.setString(5, r.getAddress().getCity());
 				aPS.setString(6, r.getAddress().getStateProvince());
-				aPS.setInt(7, r.getRoomID());
+				aPS.setInt(7, r.getFacilityID());
 				
 				//set Manager
 				String st5 = "INSERT INTO Manager (Manager_ID, FName, LName, Phone, CompanyName,"
@@ -66,7 +68,7 @@ public class FacilityDAO {
 				mPS.setString(3, r.getManager().getlName());
 				mPS.setString(4, r.getManager().getPhone());
 				mPS.setString(5, r.getManager().getCompanyName());
-				mPS.setInt(6, r.getRoomID());
+				mPS.setInt(6, r.getFacilityID());
 			}
 		}
 			
@@ -93,20 +95,21 @@ public class FacilityDAO {
 		Group g = new Group();	
 		ResultSet gRS = st.executeQuery(st1);
 		while (gRS.next()) {
-			g.setGroupID(gRS.getInt("Group_ID"));
+			g.setFacilityID(gRS.getInt("Group_ID"));
 			g.setGroupName(gRS.getString("GroupName"));
 			g.setGroupOwner(gRS.getString("GroupOwner"));
 		}
 		gRS.close();
 		
 		// get Building
-		for (Building b : g.getBuildings()){
+		for (Facility f : g.getBuildings()){
 			String st2 = "SELECT Building_ID, BuildingName, BuildingOwner, ConstructionDate FROM "
 					+ "Building WHERE Group_ID = " + groupID;
-			b = new Building();
+			f = new Building();
+			Building b = (Building)f;
 			ResultSet bRS = st.executeQuery(st2);
 			while (bRS.next()){
-				b.setBuildingID(bRS.getInt("Building_ID"));
+				b.setFacilityID(bRS.getInt("Building_ID"));
 				b.setBuildingName(bRS.getString("BuildingName"));
 				b.setBuildingOwner(bRS.getString("BuildingOwner"));
 				b.setConstructionDate(new java.util.Date(bRS.getDate("ConstructionDate").getTime()));
@@ -115,13 +118,14 @@ public class FacilityDAO {
 			bRS.close();
 			
 			// get Room
-			for (Room r : b.getRooms()){
+			for (Facility fr : b.getRooms()){
 				String st3 = "SELECT Room_ID, RoomName, RoomOwner, UsageType FROM Room WHERE "
-						+ "Building_ID = " + b.getBuildingID();
-				r = new Room();
+						+ "Building_ID = " + b.getFacilityID();
+				fr = new Room();
+				Room r = (Room)fr;
 				ResultSet rRS = st.executeQuery(st3);
 				while (rRS.next()) {
-					r.setRoomID(rRS.getInt("Room_ID"));
+					r.setFacilityID(rRS.getInt("Room_ID"));
 					r.setRoomName(rRS.getString("RoomName"));
 					r.setRoomOwner(rRS.getString("RoomOwner"));
 					r.setUsageType(rRS.getString("UsageType"));
@@ -131,7 +135,7 @@ public class FacilityDAO {
 				
 				// get Address
 				String st4 = "SELECT Address_ID, UnitNumber, StreetNumber, Street, City, "
-						+ "StateProvince FROM Address WHERE Room_ID = " + r.getRoomID();
+						+ "StateProvince FROM Address WHERE Room_ID = " + r.getFacilityID();
 				Address a = new Address();
 				ResultSet aRS = st.executeQuery(st4);
 				while (aRS.next()) {
@@ -147,7 +151,7 @@ public class FacilityDAO {
 				
 				// get Manager
 				String st5 = "SELECT Manager_ID, FName, LName, Phone, CompanyName FROM "
-						+ "Manager WHERE Room_ID = " + r.getRoomID();
+						+ "Manager WHERE Room_ID = " + r.getFacilityID();
 				Manager m = new Manager();
 				ResultSet mRS = st.executeQuery(st5);
 				while (mRS.next()) {

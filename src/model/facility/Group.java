@@ -1,105 +1,124 @@
 package model.facility;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-public class Group implements Facility, Groups{
-	private int groupID;
+import model.facilityMaintenance.MaintenanceLog;
+import model.facilityUse.UsageLog;
+import model.inspection.InspectionLog;
+
+public class Group implements Groups{
+	private int facilityID;
 	private String groupName;
 	private String groupOwner;
-	private List<Building> buildings;
+	private List<Facility> buildings;
+	private InspectionLog inspectionLog;
+	private MaintenanceLog maintenanceLog;
+	private UsageLog usageLog;
 
 	public Group(Building ... building){
+		setInspectionLog(new InspectionLog());
+		setMaintenanceLog(new MaintenanceLog());
+		setFacilityUsage(new UsageLog());
 		setBuildings(Arrays.asList(building));
 	}
+		
+	//dependency injection
+	@Override
+	public void setInspectionLog(InspectionLog log) {
+		this.inspectionLog = log;		
+	}
+
+	@Override
+	public void setFacilityUsage(UsageLog log) {
+		this.usageLog = log;
+	}
+
+	@Override
+	public void setMaintenanceLog(MaintenanceLog log) {
+		this.maintenanceLog = log;		
+	}
+	
+	//getters and setters
+	@Override
+	public InspectionLog getInspectionLog() { return inspectionLog;	}
+
+	@Override
+	public UsageLog getUsageLog() { return usageLog; }
+
+	@Override
+	public MaintenanceLog getMaintenanceLog() { return maintenanceLog; }
+	
+	@Override
+	public int getFacilityID() { return facilityID;	}
+	public void setFacilityID(int id) { this.facilityID = id; }
+
+	public String getGroupName() {	return groupName; }
+	public void setGroupName(String groupName) { this.groupName = groupName; }
+
+	public String getGroupOwner() {	return groupOwner;	}
+	public void setGroupOwner(String groupOwner) { this.groupOwner = groupOwner; }
+
+	public List<Facility> getBuildings() { return buildings; }
+	public void setBuildings(List<Facility> buildings) { this.buildings = buildings; }
+		
 	
 	
 	@Override
 	public List<Facility> listFacility() {
-		// TODO Auto-generated method stub
-		return null;
+		for (Facility b: buildings) {
+			System.out.println("Building ID: " + b.getFacilityID());
+			((Building)b).listFacility();
+		}
+		return buildings;
 	}
 
 	@Override
 	public Map<String, String> getFacilityInfo() {
-		// TODO Auto-generated method stub
-		return null;
+		Map<String, String> info = new HashMap<String, String>();
+		info.put("id", Integer.toString(this.getFacilityID()));
+		info.put("name", this.getGroupName());
+		info.put("owner", this.getGroupOwner());
+		info.put("type", "group");		
+		
+		for (Map.Entry<String, String> entry : info.entrySet()) {
+			System.out.println(entry.getKey() + ": " + entry.getValue());
+		}
+		
+		return info;
 	}
 
 	@Override
 	public Facility addNewFacility(Facility facility) {
+		buildings.add(facility);
+		System.out.println("Facility with ID: " + facility.getFacilityID() + " was added.");
+		return facility;
+	}
+
+	@Override
+	public void removeFacility(int id) {
+		for (Facility b: buildings) {
+			if (b.getFacilityID() == id) {
+				buildings.remove(b);
+				System.out.println("Building with ID: " + id + " was removed from group " + getFacilityID());
+				return;
+			}
+			((Building)b).removeFacility(id);
+		}
+//		System.out.println("Facility with ID: " + id + " was not found in the group " + getFacilityID());
+	}
+
+	@Override
+	public List<Facility> requestAvailFacility() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public void removefacility(Facility facility) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public LinkedList requestFacilityInfo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setInspectionLog() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setFacilityUsage() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setMaintenanceLog() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	public int getGroupID() {
-		return groupID;
-	}
-
-	public void setGroupID(int groupID) {
-		this.groupID = groupID;
-	}
-
-	public String getGroupName() {
-		return groupName;
-	}
-
-	public void setGroupName(String groupName) {
-		this.groupName = groupName;
-	}
-
-	public String getGroupOwner() {
-		return groupOwner;
-	}
-
-	public void setGroupOwner(String groupOwner) {
-		this.groupOwner = groupOwner;
-	}
-
-
-	public List<Building> getBuildings() {
-		return buildings;
-	}
-
-
-	public void setBuildings(List<Building> buildings) {
-		this.buildings = buildings;
-	}
-
 }
+
+
+
+
+
+
 
 //package model.facility;
 //

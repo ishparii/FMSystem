@@ -24,11 +24,11 @@ public class FacilityUseDAO {
 		uPS.setDate(4, new java.sql.Date(u.getEndDate().getTime()));
 		
 		if (f instanceof Group) {
-			uPS.setInt(7, ((Group) f).getGroupID());
+			uPS.setInt(7, ((Group) f).getFacilityID());
 		} else if (f instanceof Building) {
-			uPS.setInt(6, ((Building) f).getBuildingID());
+			uPS.setInt(6, ((Building) f).getFacilityID());
 		} else
-			uPS.setInt(5, ((Room) f).getRoomID());
+			uPS.setInt(5, ((Room) f).getFacilityID());
 		
 		//set User
 		String st2 = "INSERT INTO FacilityUser (User_ID, FName, LName, Gender, Usage_ID) VALUES"

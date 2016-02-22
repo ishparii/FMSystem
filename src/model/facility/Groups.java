@@ -1,14 +1,12 @@
 package model.facility;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
 public interface Groups extends Facility {
 	public List<Facility> listFacility();
-	public Map<String, String> getFacilityInfo();
 	public Facility addNewFacility(Facility facility);
-	public void removefacility(Facility facility);
-	public LinkedList requestFacilityInfo();
+	public void removeFacility(int id);
+	public List<Facility> requestAvailFacility();
+	//public LinkedList requestFacilityInfo();
 }

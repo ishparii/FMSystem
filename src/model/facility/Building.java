@@ -1,112 +1,128 @@
 package model.facility;
 
-import java.util.Arrays;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
-public class Building implements Facility, Groups {
-	private int buildingID;
+import model.facilityMaintenance.MaintenanceLog;
+import model.facilityUse.UsageLog;
+import model.inspection.InspectionLog;
+
+public class Building implements Groups {
+	private int facilityID;
 	private String buildingName;
 	private String buildingOwner;
 	private Date constructionDate;
-	private List<Room> rooms;
+	private List<Facility> rooms;
+	private InspectionLog inspectionLog;
+	private MaintenanceLog maintenanceLog;
+	private UsageLog usageLog;
+
 	
 	public Building(Room ... room) {
+		setInspectionLog(new InspectionLog());
+		setMaintenanceLog(new MaintenanceLog());
+		setFacilityUsage(new UsageLog());
 		setRooms(Arrays.asList(room));
+	}	
+	
+	//dependency injection
+	@Override
+	public void setInspectionLog(InspectionLog log) {
+		this.inspectionLog = log;		
 	}
+
+	@Override
+	public void setFacilityUsage(UsageLog log) {
+		this.usageLog = log;
+	}
+
+	@Override
+	public void setMaintenanceLog(MaintenanceLog log) {
+		this.maintenanceLog = log;		
+	}
+	
+	//getters and setters
+	@Override
+	public InspectionLog getInspectionLog() { return inspectionLog;	}
+
+	@Override
+	public UsageLog getUsageLog() { return usageLog; }
+
+	@Override
+	public MaintenanceLog getMaintenanceLog() { return maintenanceLog; }
+	
+	@Override
+	public int getFacilityID() { return facilityID;	}
+	public void setFacilityID(int id) {	this.facilityID = id;}
+
+	public String getBuildingName() { return buildingName; }
+	public void setBuildingName(String buildingName) { this.buildingName = buildingName; }
+
+	public String getBuildingOwner() { return buildingOwner; }
+	public void setBuildingOwner(String buildingOwner) { this.buildingOwner = buildingOwner; }
+	
+	public Date getConstructionDate() {	return constructionDate; }
+	public void setConstructionDate(Date constructionDate) { this.constructionDate = constructionDate; }
+
+	public List<Facility> getRooms() {	return rooms; }
+	public void setRooms(List<Facility> rooms) { this.rooms = rooms; }
 	
 	
 	@Override
 	public List<Facility> listFacility() {
-		// TODO Auto-generated method stub
-		return null;
+		for (Facility r: rooms) {
+			System.out.println("Room ID: " + r.getFacilityID());
+		}
+		return rooms;
 	}
 
 	@Override
 	public Map<String, String> getFacilityInfo() {
-		// TODO Auto-generated method stub
-		return null;
+		Map<String, String> info = new HashMap<String, String>();
+		info.put("id", Integer.toString(this.getFacilityID()));
+		info.put("name", this.getBuildingName());
+		info.put("owner", this.getBuildingOwner());
+		info.put("type", "group");		
+		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+		info.put("constraction date", df.format(constructionDate));
+		for (Map.Entry<String, String> entry : info.entrySet()) {
+			System.out.println(entry.getKey() + ": " + entry.getValue());
+		}
+		
+		return info;
 	}
 
 	@Override
 	public Facility addNewFacility(Facility facility) {
+		rooms.add(facility);
+		System.out.println("Facility with ID: " + facility.getFacilityID() + " was added.");
+		return facility;
+	}
+
+	@Override
+	public void removeFacility(int id) {
+		for (Facility r: rooms) {
+			if (r.getFacilityID() == id) {
+				rooms.remove(r);
+				System.out.println("Room with ID: " + id + " was removed from building " + getFacilityID());
+				return;
+			}
+		}
+		System.out.println("Facility with ID: " + id + " was not found in the building " + getFacilityID());
+		
+	}
+
+	@Override
+	public List<Facility> requestAvailFacility() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public void removefacility(Facility facility) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public LinkedList requestFacilityInfo() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void setInspectionLog() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setFacilityUsage() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void setMaintenanceLog() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public int getBuildingID() {
-		return buildingID;
-	}
-
-	public void setBuildingID(int buildingID) {
-		this.buildingID = buildingID;
-	}
-
-	public String getBuildingName() {
-		return buildingName;
-	}
-
-	public void setBuildingName(String buildingName) {
-		this.buildingName = buildingName;
-	}
-
-	public String getBuildingOwner() {
-		return buildingOwner;
-	}
-
-	public void setBuildingOwner(String buildingOwner) {
-		this.buildingOwner = buildingOwner;
-	}
-	
-	public Date getConstructionDate() {
-		return constructionDate;
-	}
-
-	public void setConstructionDate(Date constructionDate) {
-		this.constructionDate = constructionDate;
-	}
 
 
-	public List<Room> getRooms() {
-		return rooms;
-	}
 
 
-	public void setRooms(List<Room> rooms) {
-		this.rooms = rooms;
-	}
 
 }
 

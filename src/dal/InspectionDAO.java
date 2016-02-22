@@ -21,11 +21,11 @@ public class InspectionDAO {
 		iPS.setString(5, i.getOutcome());
 		
 		if (f instanceof Group) {
-			iPS.setInt(8, ((Group) f).getGroupID());
+			iPS.setInt(8, ((Group) f).getFacilityID());
 		} else if (f instanceof Building) {
-			iPS.setInt(7, ((Building) f).getBuildingID());
+			iPS.setInt(7, ((Building) f).getFacilityID());
 		} else
-			iPS.setInt(6, ((Room) f).getRoomID());
+			iPS.setInt(6, ((Room) f).getFacilityID());
 		
 		if (iPS != null) {
 			iPS.close();
