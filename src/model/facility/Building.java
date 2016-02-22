@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 import model.facilityMaintenance.MaintenanceLog;
+import model.facilityUse.Usage;
 import model.facilityUse.UsageLog;
 import model.inspection.InspectionLog;
 
@@ -113,10 +114,18 @@ public class Building implements Groups {
 		
 	}
 
+	//returns a list of rooms that are not currently in use
 	@Override
 	public List<Facility> requestAvailFacility() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Facility> availableFacility = new ArrayList<>();
+		for(Facility f : rooms) {
+			Usage u = f.getUsageLog().getUsages().get(0);
+			//available facility
+			if (u.getEndDate() != null) {
+				availableFacility.add(f);
+			}
+		}
+		return availableFacility;
 	}
 
 
