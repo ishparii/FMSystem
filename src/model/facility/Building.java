@@ -14,18 +14,25 @@ public class Building implements Groups {
 	private String buildingName;
 	private String buildingOwner;
 	private Date constructionDate;
-	private List<Facility> rooms;
+	private List<Facility> rooms = new ArrayList<Facility>();
 	private InspectionLog inspectionLog;
 	private MaintenanceLog maintenanceLog;
 	private UsageLog usageLog;
 
 	
-	public Building(Room ... room) {
+//	public Building(Room ... room) {
+//		setInspectionLog(new InspectionLog());
+//		setMaintenanceLog(new MaintenanceLog());
+//		setFacilityUsage(new UsageLog());
+//		setRooms(Arrays.asList(room));
+//	}	
+	
+	public Building() {
 		setInspectionLog(new InspectionLog());
 		setMaintenanceLog(new MaintenanceLog());
 		setFacilityUsage(new UsageLog());
-		setRooms(Arrays.asList(room));
-	}	
+	}
+	
 	
 	//dependency injection
 	@Override
@@ -67,7 +74,10 @@ public class Building implements Groups {
 	public void setConstructionDate(Date constructionDate) { this.constructionDate = constructionDate; }
 
 	public List<Facility> getRooms() {	return rooms; }
-	public void setRooms(List<Facility> rooms) { this.rooms = rooms; }
+//	public void setRooms(List<Facility> rooms) { this.rooms = rooms; }
+	public void setRooms(Room room) {
+		addNewFacility(room);
+	}
 	
 	
 	@Override

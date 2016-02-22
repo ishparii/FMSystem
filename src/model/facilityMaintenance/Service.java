@@ -1,7 +1,6 @@
 package model.facilityMaintenance;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 public class Service {
     private int serviceID;

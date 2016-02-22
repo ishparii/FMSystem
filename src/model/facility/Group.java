@@ -11,18 +11,25 @@ public class Group implements Groups{
 	private int facilityID;
 	private String groupName;
 	private String groupOwner;
-	private List<Facility> buildings;
+	private ArrayList<Facility> buildings = new ArrayList<Facility>();
 	private InspectionLog inspectionLog;
 	private MaintenanceLog maintenanceLog;
 	private UsageLog usageLog;
 
-	public Group(Building ... building){
+//	public Group(Building ... building){
+//		setInspectionLog(new InspectionLog());
+//		setMaintenanceLog(new MaintenanceLog());
+//		setFacilityUsage(new UsageLog());
+//		setBuildings(Arrays.asList(building));   
+//	}
+	
+	public Group() {
 		setInspectionLog(new InspectionLog());
 		setMaintenanceLog(new MaintenanceLog());
 		setFacilityUsage(new UsageLog());
-		setBuildings(Arrays.asList(building));
 	}
 		
+	
 	//dependency injection
 	@Override
 	public void setInspectionLog(InspectionLog log) {
@@ -38,6 +45,7 @@ public class Group implements Groups{
 	public void setMaintenanceLog(MaintenanceLog log) {
 		this.maintenanceLog = log;		
 	}
+	
 	
 	//getters and setters
 	@Override
@@ -60,12 +68,17 @@ public class Group implements Groups{
 	public void setGroupOwner(String groupOwner) { this.groupOwner = groupOwner; }
 
 	public List<Facility> getBuildings() { return buildings; }
-	public void setBuildings(List<Facility> buildings) { this.buildings = buildings; }
+//	public void setBuildings(List<Facility> buildings) { 
+//		this.buildings = buildings; 
+//		}
+	public void setBuildings(Building building) {
+		addNewFacility(building);
+	}
 		
 	
 	
 	@Override
-	public List<Facility> listFacility() {
+	public ArrayList<Facility> listFacility() {
 		for (Facility b: buildings) {
 			System.out.println("Building ID: " + b.getFacilityID());
 			((Building)b).listFacility();

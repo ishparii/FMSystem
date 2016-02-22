@@ -10,21 +10,21 @@ public class FacilityClient{
 	
 	public static void main (String args[]) throws Exception {
 		
-		Manager manager= new Manager();
+		Manager manager = new Manager();
 		manager.setManagerID(123);
 	    manager.setfName("Philip");
 		manager.setlName("White");
 		manager.setCompanyName("Water Tower");
 		manager.setPhone("1234567890");
 		
-		Group group= new Group();
+		Group group = new Group();
 		group.setFacilityID(1);
 		group.setGroupName("Water Tower");
 		group.setGroupOwner("Joey");
 		
 		//Adding building1 to Group
 		
-		Building building1= new Building();
+		Building building1 = new Building();
 		building1.setFacilityID(10);
 		building1.setBuildingName("Hancock Tower");
 		building1.setBuildingOwner("Chandler");
@@ -34,13 +34,13 @@ public class FacilityClient{
 		
 		// Adding room1 to building 1
 		
-		Room room1=new Room();
+		Room room1 = new Room();
 		room1.setFacilityID(1);
 		room1.setRoomName("Spring");
 		room1.setRoomOwner("Ross");
 		room1.setUsageType("Residential");
 		
-		Address room1Address= new Address();
+		Address room1Address = new Address();
 		room1Address.setAddressID(1);
 		room1Address.setUnitNumber(1);
 		room1Address.setStreetNumber(65);
@@ -56,7 +56,7 @@ public class FacilityClient{
 		
 		//Adding building2 to Group		
 		
-		Building building2= new Building();
+		Building building2 = new Building();
 		building2.setFacilityID(11);
 		building2.setBuildingName("Sears Tower");
 		building2.setBuildingOwner("Mark");
@@ -65,13 +65,13 @@ public class FacilityClient{
 		group.addNewFacility(building2);
 		
 		//Adding room 2 to building 2
-		Room room2=new Room();
+		Room room2 = new Room();
 		room2.setFacilityID(2);
 		room2.setRoomName("Autumn");
 		room2.setRoomOwner("Helen");
 		room2.setUsageType("Office");
 		
-		Address room2Address= new Address();
+		Address room2Address = new Address();
 		room2Address.setAddressID(2);
 		room2Address.setUnitNumber(2);
 		room2Address.setStreetNumber(56);
@@ -87,13 +87,13 @@ public class FacilityClient{
 		
 		//Adding room 3 to building 2
 		
-		Room room3=new Room();
+		Room room3 = new Room();
 		room3.setFacilityID(3);
 		room3.setRoomName("Monsoon");
 		room3.setRoomOwner("Annie");
 		room3.setUsageType("Office");
 		
-		Address room3Address= new Address();
+		Address room3Address = new Address();
 		room3Address.setAddressID(3);
 		room3Address.setUnitNumber(3);
 		room3Address.setStreetNumber(57);

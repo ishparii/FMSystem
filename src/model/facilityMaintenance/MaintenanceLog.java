@@ -4,7 +4,6 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import model.facilityUse.Usage;
 
 public class MaintenanceLog {
     //private Request request;
@@ -81,7 +80,7 @@ public class MaintenanceLog {
         return downtime;
     }
 
-    //calculates percentage of downtime from the given perion of time 
+    //calculates percentage of downtime from the given period of time 
     public double calcProblemRateForFacility(Date start, Date end) {
     	double diffInDays = (end.getTime() - start.getTime()) / (1000.0 * 60 * 60 * 24);
     	double downtime = calcDowntime(start, end);
