@@ -7,7 +7,7 @@ import model.inspection.Inspection;
 
 public class InspectionDAO {
 	// setter
-	public void setInspection(Inspection i, Facility f) throws SQLException {
+	public void setInspection(Inspection i, Facility f) throws Exception {
 		Connection connection = DatabaseHelper.getConnection();
 		
 		String st = "INSERT INTO Inspection (Inspection_ID, InsepctionType, InspectionDate, "
@@ -36,7 +36,7 @@ public class InspectionDAO {
 	}
 	
 	//getter
-	public Inspection getInspcetion(int iID) throws SQLException {
+	public Inspection getInspcetion(int iID) throws Exception {
 		Statement st = DatabaseHelper.getConnection().createStatement();
 		
 		String st1 = "SELECT InspectionType, InspectionDate, Inspector, OutCome, "

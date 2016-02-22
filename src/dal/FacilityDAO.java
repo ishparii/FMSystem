@@ -6,7 +6,7 @@ import java.sql.*;
 
 public class FacilityDAO {
 	// setter
-	public void setFacility(Group group) throws SQLException {
+	public void setFacility(Group group) throws Exception {
 		Connection connection = DatabaseHelper.getConnection();;
 		
 		PreparedStatement gPS = null;
@@ -86,7 +86,7 @@ public class FacilityDAO {
 	
 	
 	// getter
-	public Group getFacility(int groupID) throws SQLException {
+	public Group getFacility(int groupID) throws Exception {
 		Statement st = DatabaseHelper.getConnection().createStatement();
 		
 		// get Group

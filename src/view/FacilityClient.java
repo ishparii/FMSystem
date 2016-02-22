@@ -1,5 +1,6 @@
 package view;
 
+import dal.*;
 import model.facility.Address;
 import model.facility.Building;
 import model.facility.Group;
@@ -9,6 +10,8 @@ import model.facility.Room;
 public class FacilityClient{
 	
 	public static void main (String args[]) throws Exception {
+		DatabaseHelper dh = new DatabaseHelper();
+		FacilityDAO dao1 = new FacilityDAO();
 		
 		Manager manager = new Manager();
 		manager.setManagerID(123);
@@ -104,6 +107,10 @@ public class FacilityClient{
 		
 		room3.setAddress(room3Address);
 		room3.setManager(manager);
+		
+		dao1.setFacility(group);
+		
+		
 		
 
 }}

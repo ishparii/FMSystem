@@ -7,7 +7,7 @@ import java.sql.*;
 
 
 public class FacilityUseDAO {
-	public void setFacilityUse(Usage u, Facility f) throws SQLException {
+	public void setFacilityUse(Usage u, Facility f) throws Exception {
 		//setter
 		Connection connection = DatabaseHelper.getConnection();
 		
@@ -50,7 +50,7 @@ public class FacilityUseDAO {
 	}
 	
 	// getter
-	public void getFacilityUse (int uID) throws SQLException {
+	public void getFacilityUse (int uID) throws Exception {
 		Statement st = DatabaseHelper.getConnection().createStatement();
 		
 		// get Usage
