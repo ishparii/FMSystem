@@ -27,6 +27,10 @@ public class InspectionDAO {
 		} else
 			iPS.setInt(6, ((Room) f).getFacilityID());
 		
+		iPS.executeUpdate();
+		
+		
+		
 		if (iPS != null) {
 			iPS.close();
 		}
@@ -40,7 +44,7 @@ public class InspectionDAO {
 		Statement st = DatabaseHelper.getConnection().createStatement();
 		
 		String st1 = "SELECT InspectionType, InspectionDate, Inspector, OutCome, "
-				+ "Room_ID, BuildingID, Group_ID FROM Inspection WHERE Inspection_ID = " + iID;
+				+ "FROM Inspection WHERE Inspection_ID = " + iID;
 		
 		ResultSet iRS = st.executeQuery(st1);
 		Inspection i = new Inspection();

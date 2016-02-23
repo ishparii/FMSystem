@@ -9,7 +9,7 @@ public class Usage {
     private Date endDate;
     private User user;
     
-    private int FacilityID;
+//    private int FacilityID;
     
 	public int getUsageID() {
 		return usageID;
@@ -41,12 +41,12 @@ public class Usage {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	public int getFacilityID() {
-		return FacilityID;
-	}
-	public void setFacilityID(int facilityID) {
-		FacilityID = facilityID;
-	}
+//	public int getFacilityID() {
+//		return FacilityID;
+//	}
+//	public void setFacilityID(int facilityID) {
+//		FacilityID = facilityID;
+//	}
 
 
 }

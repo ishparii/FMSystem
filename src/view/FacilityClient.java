@@ -13,11 +13,9 @@ import model.facility.Room;
 public class FacilityClient{
 	
 	public static void main (String args[]) throws Exception {
-		
 		SimpleDateFormat fmt = new SimpleDateFormat("yyyy-mm-dd");
 		Date date1 = fmt.parse("2009-02-13");
 		Date date2 = fmt.parse("2013-10-10");
-		
 		
 		FacilityDAO dao1 = new FacilityDAO();
 		

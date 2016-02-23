@@ -16,12 +16,14 @@ public class FacilityDAO {
 		PreparedStatement mPS = null;
 		
 		// set Group
-		String st1 = "INSERT INTO BuildingGroup (Group_ID, GroupName, GroupOwner) VALUES "
-				+ "(?, ?, ?)";		
+		String st1 = "INSERT INTO BuildingGroup (Group_ID, GroupName, GroupOwner) VALUES"
+				+ " (?, ?, ?)";		
 		gPS = connection.prepareStatement(st1);
 		gPS.setInt(1, group.getFacilityID());
 		gPS.setString(2, group.getGroupName());
 		gPS.setString(3, group.getGroupOwner());
+		
+		gPS.executeUpdate();
 			
 		// set Building	
 		for (Facility f : group.getBuildings()) {
@@ -35,9 +37,11 @@ public class FacilityDAO {
 			bPS.setDate(4, new java.sql.Date(b.getConstructionDate().getTime()));
 			bPS.setInt(5, group.getFacilityID());
 			
+			bPS.executeUpdate();
+			
 			// set Room	
 			for (Facility fr : b.getRooms()) {
-				String st3 = "INSERT INTO Room (Room_ID, RoomName, RoomOwner, UsageType, Building_ID"
+				String st3 = "INSERT INTO Room (Room_ID, RoomName, RoomOwner, UsageType, Building_ID)"
 						+ " VALUES (?, ?, ?, ?, ?)";
 				rPS = connection.prepareStatement(st3);
 				Room r = (Room)fr;
@@ -45,7 +49,9 @@ public class FacilityDAO {
 				rPS.setString(2, r.getRoomName());
 				rPS.setString(3, r.getRoomOwner());
 				rPS.setString(4, r.getUsageType());
-				rPS.setInt(5, r.getFacilityID());
+				rPS.setInt(5, b.getFacilityID());
+				
+				rPS.executeUpdate();
 				
 				//set Address
 				String st4 = "INSERT INTO Address (Address_ID, UnitNumber, StreetNumber, "
@@ -59,6 +65,8 @@ public class FacilityDAO {
 				aPS.setString(6, r.getAddress().getStateProvince());
 				aPS.setInt(7, r.getFacilityID());
 				
+				aPS.executeUpdate();
+				
 				//set Manager
 				String st5 = "INSERT INTO Manager (Manager_ID, FName, LName, Phone, CompanyName,"
 						+ " Room_ID) VALUES (?, ?, ?, ?, ?, ?)";
@@ -69,8 +77,11 @@ public class FacilityDAO {
 				mPS.setString(4, r.getManager().getPhone());
 				mPS.setString(5, r.getManager().getCompanyName());
 				mPS.setInt(6, r.getFacilityID());
+				
+				mPS.executeUpdate();
 			}
 		}
+		
 			
 		if (mPS != null) {
 			rPS.close();

@@ -29,6 +29,8 @@ public class FacilityUseDAO {
 			uPS.setInt(6, ((Building) f).getFacilityID());
 		} else
 			uPS.setInt(5, ((Room) f).getFacilityID());
+		uPS.executeUpdate();
+		
 		
 		//set User
 		String st2 = "INSERT INTO FacilityUser (User_ID, FName, LName, Gender, Usage_ID) VALUES"
@@ -39,6 +41,8 @@ public class FacilityUseDAO {
 		urPS.setString(3, u.getUser().getlName());
 		urPS.setString(4,  u.getUser().getGender());
 		urPS.setInt(5, u.getUsageID());
+		
+		urPS.executeUpdate();
 		
 		if (urPS != null) {
 			uPS.close();
@@ -54,8 +58,8 @@ public class FacilityUseDAO {
 		Statement st = DatabaseHelper.getConnection().createStatement();
 		
 		// get Usage
-		String st1 = "SELECT Usage_ID, UsageType, StartDate, EndDate, Room_ID, Building_ID,"
-				+ " Group_ID FROM FacilityUsage WHERE Usage_ID = " + uID;
+		String st1 = "SELECT Usage_ID, UsageType, StartDate, EndDate FROM FacilityUsage "
+				+ "WHERE Usage_ID = " + uID;
 		ResultSet uRS = st.executeQuery(st1);
 		Usage u = new Usage();
 		while (uRS.next()) {
@@ -64,16 +68,16 @@ public class FacilityUseDAO {
 			u.setStartDate(new java.util.Date(uRS.getDate("StartDate").getTime()));
 			u.setEndDate(new java.util.Date(uRS.getDate("EndDate").getTime()));
 			
-			int r_id = uRS.getInt("Room_ID");
-			int b_id = uRS.getInt("Building_ID");
-			int g_id = uRS.getInt("Group_ID");
-			if ((Integer)r_id != null) {
-				u.setFacilityID(r_id);
-			} else if ((Integer)b_id != null) {
-				u.setFacilityID(b_id);
-			} else {
-				u.setFacilityID(g_id);
-			}	
+//			int r_id = uRS.getInt("Room_ID");
+//			int b_id = uRS.getInt("Building_ID");
+//			int g_id = uRS.getInt("Group_ID");
+//			if ((Integer)r_id != null) {
+//				u.setFacilityID(r_id);
+//			} else if ((Integer)b_id != null) {
+//				u.setFacilityID(b_id);
+//			} else {
+//				u.setFacilityID(g_id);
+//			}	
 		}
 		uRS.close();
 		
