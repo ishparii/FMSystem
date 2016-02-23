@@ -70,6 +70,7 @@ public class Room implements Facility{
 	public Manager getManager() { return manager; }
 	public void setManager(Manager manager) { this.manager = manager; }
 	
+	
 	@Override
 	public Map<String, String> getFacilityInfo() {
 		Map<String, String> info = new HashMap<String, String>();

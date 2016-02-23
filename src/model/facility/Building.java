@@ -131,7 +131,7 @@ public class Building implements Groups {
 		for(Facility f : rooms) {
 			Usage u = f.getUsageLog().getUsages().get(0);
 			//available facility
-			if (u.getEndDate() != null) {
+			if (u.getEndDate() == null) {
 				availableFacility.add(f);
 			}
 		}

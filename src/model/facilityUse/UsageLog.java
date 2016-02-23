@@ -5,12 +5,12 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class UsageLog {
-    private List<Usage> usages;
-    private DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+    private List<Usage> usages = new ArrayList<Usage>();
+    private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 	
-	public UsageLog(Usage ... usage) {
-    	this.setUsages(Arrays.asList(usage));
-    }
+//	public UsageLog(Usage ... usage) {
+//    	this.setUsages(Arrays.asList(usage));
+//    }
 
 	//calculates usage rate in percentages during given interval
 	//assuming facility can have one usage at a time
@@ -19,16 +19,23 @@ public class UsageLog {
     	int usageDays = 0;
     	for (Usage u : usages) {
     		Date usageStartDate = u.getStartDate();
+    		Date usageEndDate = u.getEndDate();
+    		int currentUsageInDays = 0;
     		if (usageStartDate.after(start) && usageStartDate.before(end)) {
-    			Date usageEndDate = u.getEndDate();
-    			int currentUsageInDays = 0;
         		if (usageEndDate != null && usageEndDate.before(end)) {
         			currentUsageInDays = (int) ((usageEndDate.getTime() - usageStartDate.getTime()) / (1000 * 60 * 60 * 24));        			
         		} else {
         			currentUsageInDays = (int) ((end.getTime() - usageStartDate.getTime()) / (1000 * 60 * 60 * 24));
         		}
-        		usageDays += currentUsageInDays;
+        		
+    		} else if (usageStartDate.before(start)) {
+    			if (usageEndDate == null) {
+    				currentUsageInDays = diffInDays;
+    			} else if (usageEndDate.after(start)) {
+    				currentUsageInDays = (int) ((usageEndDate.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)); 	
+    			}
     		}
+    		usageDays += currentUsageInDays;
     	}
         return ((double)usageDays)/diffInDays*100.0;
     }
@@ -75,7 +82,10 @@ public class UsageLog {
     public boolean isInUseDuringInterval(Date start, Date end) {
     	for (Usage u : usages) {
     		Date usageStartDate = u.getStartDate();
+    		Date usageEndDate = u.getEndDate();
     		if (usageStartDate.after(start) && usageStartDate.before(end)) {
+    			return true;
+    		} else if (usageStartDate.before(start) && ((usageEndDate == null) || usageEndDate.after(start))) {
     			return true;
     		}
     	}

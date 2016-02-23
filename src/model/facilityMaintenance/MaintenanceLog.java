@@ -7,12 +7,12 @@ import java.util.*;
 
 public class MaintenanceLog {
     //private Request request;
-	private DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-    private List<Request> requests;
+	private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    private List<Request> requests = new ArrayList<Request>();
     
-    public MaintenanceLog(Request ... request) {
-    	setRequests(Arrays.asList(request));
-    }
+//    public MaintenanceLog(Request ... request) {
+//    	setRequests(Arrays.asList(request));
+//    }
 
     //returns a list of requests with not scheduled maintenances
     //and prints to console information about them

@@ -6,14 +6,15 @@ import java.util.*;
 
 public class InspectionLog {
    
-    private List<Inspection> inspections;
+    private List<Inspection> inspections = new ArrayList<Inspection>();
     
-    public InspectionLog(Inspection ... inspection) {
-    	this.setInspections(Arrays.asList(inspection));
-    }
+
+//    public InspectionLog(Inspection ... inspection) {
+//    	this.setInspections(Arrays.asList(inspection));
+//    }
 
     public List<Inspection> listInspection() {
-    	DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
+    	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
         for (Inspection i : inspections) {        	
         	System.out.println("Inspection " + i.getInspectionID() + " of " + i.getInspectionType() + 
         			" type was done by " + i.getInspector() + " on "+ df.format(i.getInspectionDate()) + 
@@ -28,6 +29,12 @@ public class InspectionLog {
 
 	public void setInspections(List<Inspection> inspections) {
 		this.inspections = inspections;
+	}
+	
+	public Inspection addInspection(Inspection inspection) {
+		inspections.add(inspection);
+		System.out.println("Inspection added.");
+		return inspection;
 	}
 
 
