@@ -15,13 +15,6 @@ public class Group implements Groups{
 	private InspectionLog inspectionLog;
 	private MaintenanceLog maintenanceLog;
 	private UsageLog usageLog;
-
-//	public Group(Building ... building){
-//		setInspectionLog(new InspectionLog());
-//		setMaintenanceLog(new MaintenanceLog());
-//		setFacilityUsage(new UsageLog());
-//		setBuildings(Arrays.asList(building));   
-//	}
 	
 	public Group() {
 		setInspectionLog(new InspectionLog());
@@ -29,7 +22,6 @@ public class Group implements Groups{
 		setFacilityUsage(new UsageLog());
 	}
 		
-	
 	//dependency injection
 	@Override
 	public void setInspectionLog(InspectionLog log) {
@@ -74,8 +66,7 @@ public class Group implements Groups{
 	public void setBuildings(Building building) {
 		addNewFacility(building);
 	}
-		
-	
+
 	
 	@Override
 	public ArrayList<Facility> listFacility() {
@@ -118,7 +109,6 @@ public class Group implements Groups{
 			}
 			((Building)b).removeFacility(id);
 		}
-//		System.out.println("Facility with ID: " + id + " was not found in the group " + getFacilityID());
 	}
 
 	//returns a list of buildings that are not currently in use
@@ -135,81 +125,4 @@ public class Group implements Groups{
 		return availableFacility;
 	}
 }
-
-
-
-
-
-
-
-//package model.facility;
-//
-//import java.util.Arrays;
-//import java.util.HashMap;
-//import java.util.LinkedList;
-//import java.util.List;
-//import java.util.Map;
-//
-//public class UnitGroup extends Facility11 {
-//
-//	public UnitGroup(Facility11... facilities) {
-//		super();
-//		this.facilities = Arrays.asList(facilities);
-//	}
-//
-//	private List<Facility11> facilities;
-//	
-//	
-//	
-//	@Override
-//	public Map<String, String> getFacilityInfo() {
-//		Map<String, String> info = new HashMap<String, String>();
-//		info.put("id", Integer.toString(this.getFacilityID()));
-//		info.put("name", this.getName());
-//		info.put("owner", this.getOwner());
-//		info.put("type", "group");		
-//		
-//		for (Map.Entry<String, String> entry : info.entrySet()) {
-//			System.out.println(entry.getKey() + ": " + entry.getValue());
-//		}
-//		
-//		return info;
-//	}
-//
-//	public List<Facility11> listFacility() {
-//		for (Facility11 f: facilities) {
-//			System.out.println("Facility ID: " + f.getFacilityID());
-//			if (f instanceof UnitGroup) {
-//				System.out.println("Facility ID: " + f.getFacilityID() + " contains:");
-//				((UnitGroup) f).listFacility();				
-//			} else {
-//				System.out.println("Facility ID: " + f.getFacilityID() + ";");
-//			}
-//		}
-//		return facilities;
-//	}
-//
-//	public LinkedList requestAvailFacility() {
-//		// TODO generate a LinkedList to return the available facility.
-//		return null;
-//	}
-//
-//	public Facility11 addNewFacility(Facility11 facility) {
-//		facilities.add(facility);
-//		System.out.println("Facility with ID: " + facility.getFacilityID() + " was added.");
-//		return facility;
-//	}
-//
-//	public void removeFacility(int facilityID){
-//		for (Facility11 f: facilities) {
-//			if (f.getFacilityID() == facilityID) {
-//				facilities.remove(f);
-//				System.out.println("Facility with ID: " + facilityID + " was removed");
-//				return;
-//			} else if (f instanceof UnitGroup) {
-//				((UnitGroup) f).removeFacility(facilityID);				
-//			}
-//		}
-//	}
-//}
 

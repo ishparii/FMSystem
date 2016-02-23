@@ -7,12 +7,11 @@ import model.inspection.Inspection;
 
 public class InspectionDAO {
 	// setter
-	public void setInspection(Inspection i, Facility f) throws Exception {
+	public void setInspection(Inspection i) throws Exception {
 		Connection connection = DatabaseHelper.getConnection();
 		
-		String st = "INSERT INTO Inspection (Inspection_ID, InsepctionType, InspectionDate, "
-				+ "Inspector, OutCome, Room_ID, BuildingID, Group_ID) VALUES (?, ?, ?, ?, "
-				+ "?, ?, ?, ?";
+		String st = "INSERT INTO Inspection (Inspection_ID, InspectionType, InspectionDate, "
+				+ "Inspector, OutCome) VALUES (?, ?, ?, ?, ?)";
 		PreparedStatement iPS = connection.prepareStatement(st);
 		iPS.setInt(1, i.getInspectionID());
 		iPS.setString(2, i.getInspectionType());
@@ -20,16 +19,7 @@ public class InspectionDAO {
 		iPS.setString(4, i.getInspector());
 		iPS.setString(5, i.getOutcome());
 		
-		if (f instanceof Group) {
-			iPS.setInt(8, ((Group) f).getFacilityID());
-		} else if (f instanceof Building) {
-			iPS.setInt(7, ((Building) f).getFacilityID());
-		} else
-			iPS.setInt(6, ((Room) f).getFacilityID());
-		
 		iPS.executeUpdate();
-		
-		
 		
 		if (iPS != null) {
 			iPS.close();
@@ -38,6 +28,7 @@ public class InspectionDAO {
 			connection.close();
 		}
 	}
+	
 	
 	//getter
 	public Inspection getInspcetion(int iID) throws Exception {
@@ -53,18 +44,7 @@ public class InspectionDAO {
 			i.setInspectionDate(new java.util.Date(iRS.getDate("InspectionDate").getTime()));
 			i.setInspector(iRS.getString("Inspector"));
 			i.setOutcome(iRS.getString("Outcome"));
-			
-//			int r_id = iRS.getInt("Room_ID");
-//			int b_id = iRS.getInt("Building_ID");
-//			int g_id = iRS.getInt("Group_ID");
-//			
-//			if ((Integer)r_id != null) {
-//				i.setFacilityID(r_id);
-//			} else if ((Integer)b_id != null) {
-//				i.setFacilityID(b_id);
-//			} else {
-//				i.setFacilityID(g_id);
-//			}
+
 		}
 		iRS.close();
 		st.close();

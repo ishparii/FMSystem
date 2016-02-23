@@ -77,7 +77,6 @@ public class Room implements Facility{
 		info.put("id", Integer.toString(this.getFacilityID()));
 		info.put("name", this.getRoomName());
 		info.put("address", this.getAddress().toString());
-//		DateFormat df = new SimpleDateFormat("MM/dd/yyyy");
 		info.put("owner", this.getRoomOwner());
 		info.put("manager", this.getManager().getfName() + " " + this.getManager().getlName());
 		info.put("type", this.getUsageType());		
@@ -88,8 +87,5 @@ public class Room implements Facility{
 		
 		return info;
 	}
-
-
-
 }
 

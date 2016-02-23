@@ -15,9 +15,8 @@ public class Maintenance {
         return schedule;
     }
     
-
-    public Schedule setSchedule(Schedule schedule) {
-        return schedule;
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
 
     //creates new Schedule object and sets schedule time

@@ -7,11 +7,6 @@ import java.util.*;
 public class InspectionLog {
    
     private List<Inspection> inspections = new ArrayList<Inspection>();
-    
-
-//    public InspectionLog(Inspection ... inspection) {
-//    	this.setInspections(Arrays.asList(inspection));
-//    }
 
     public List<Inspection> listInspection() {
     	DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -23,10 +18,6 @@ public class InspectionLog {
         return inspections;
     }
 
-//	public List<Inspection> getInspections() {
-//		return inspections;
-//	}
-
 	public void setInspections(List<Inspection> inspections) {
 		this.inspections = inspections;
 	}
@@ -36,6 +27,4 @@ public class InspectionLog {
 		System.out.println("Inspection added.");
 		return inspection;
 	}
-
-
 }

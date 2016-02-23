@@ -5,10 +5,9 @@ import model.facility.*;
 import java.sql.*;
 
 
-
 public class FacilityMaintenanceDAO {
 	//setter
-	public void setFacilityMaintenance(Request r, Facility f) throws Exception {
+	public void setFacilityMaintenance(Request r) throws Exception {
 		Connection connection = DatabaseHelper.getConnection();
 		
 		PreparedStatement rPS = null;
@@ -18,19 +17,12 @@ public class FacilityMaintenanceDAO {
 		PreparedStatement cPS = null;
 		
 		//set Request
-		String st1 = "INSERT INTO Request (Request_ID, DateRequested, TextDescription, Room_ID"
-				+ "Building_ID, Group_ID) VALUES (?, ?, ?, ?, ?, ?)";
+		String st1 = "INSERT INTO Request (Request_ID, DateRequested, TextDescription) VALUES"
+				+ " (?, ?, ?)";
 		rPS = connection.prepareStatement(st1);
 		rPS.setInt(1, r.getRequestID());
 		rPS.setDate(2, new java.sql.Date(r.getDateRequested().getTime()));
 		rPS.setString(3, r.getTextDescription());
-		
-		if (f instanceof Group) {
-			rPS.setInt(6, ((Group) f).getFacilityID());
-		} else if (f instanceof Building) {
-			rPS.setInt(5, ((Building) f).getFacilityID());
-		} else
-			rPS.setInt(4, ((Room) f).getFacilityID());
 		
 		rPS.executeUpdate();
 		
@@ -97,7 +89,7 @@ public class FacilityMaintenanceDAO {
 
 		
 	 // getter
-	public void getFacilityMaintenance (int rID) throws Exception {
+	public Request getFacilityMaintenance (int rID) throws Exception {
 		Statement st = DatabaseHelper.getConnection().createStatement();
 		
 	// get Request
@@ -109,17 +101,6 @@ public class FacilityMaintenanceDAO {
 			r.setRequestID(rRS.getInt("Reqeust_ID"));
 			r.setDateRequested(rRS.getTimestamp("DateRequested"));
 			r.setTextDescription(rRS.getString("TextDescription"));
-			
-//			int r_id = rRS.getInt("Room_ID");
-//			int b_id = rRS.getInt("Building_ID");
-//			int g_id = rRS.getInt("Group_ID");
-//			if ((Integer)r_id != null) {
-//				r.setFacilityID(r_id);
-//			} else if ((Integer)b_id != null) {
-//				r.setFacilityID(b_id);
-//			} else {
-//				r.setFacilityID(g_id);
-//			}	
 		}
 		rRS.close();
 	
@@ -174,8 +155,8 @@ public class FacilityMaintenanceDAO {
 		}
 		s.setCost(c);
 		cRS.close();
-
-		st.close();
+		st.close();	
 		
+		return r;
 	}
 }

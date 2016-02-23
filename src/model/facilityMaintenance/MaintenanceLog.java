@@ -6,13 +6,8 @@ import java.util.*;
 
 
 public class MaintenanceLog {
-    //private Request request;
 	private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     private List<Request> requests = new ArrayList<Request>();
-    
-//    public MaintenanceLog(Request ... request) {
-//    	setRequests(Arrays.asList(request));
-//    }
 
     //returns a list of requests with not scheduled maintenances
     //and prints to console information about them
@@ -28,8 +23,7 @@ public class MaintenanceLog {
         return problems;
     }
     
-    //creates a new Request object
-    //and returns it back
+    //creates a new Request object and returns it back
     public  Request makeFacilityMaintenanceRequest() {
         Request r = new Request();
         requests.add(r);
@@ -59,7 +53,7 @@ public class MaintenanceLog {
         return maintenances;
     }
 
-    //calculates downtime of facility in days for a given period of time
+    //calculates down time of facility in days for a given period of time
     public double calcDowntime(Date start, Date end) {
     	double downtime = 0;
     	for (Request r: requests) {
@@ -80,7 +74,7 @@ public class MaintenanceLog {
         return downtime;
     }
 
-    //calculates percentage of downtime from the given period of time 
+    //calculates percentage of down time from the given period of time 
     public double calcProblemRateForFacility(Date start, Date end) {
     	double diffInDays = (end.getTime() - start.getTime()) / (1000.0 * 60 * 60 * 24);
     	double downtime = calcDowntime(start, end);
@@ -94,12 +88,4 @@ public class MaintenanceLog {
 	public void setRequests(List<Request> requests) {
 		this.requests = requests;
 	}
-	
-//	public Request getRequest() {
-//	return request;
-//}
-//
-//public void setRequest(Request request) {
-//	this.request = request;
-//}
 }

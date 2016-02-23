@@ -5,7 +5,7 @@ import java.util.Date;
 public class Schedule {
 	private int scheduleID;
     private Date dateScheduled;
-    private Service service;
+    private Service service = new Service();
     
     public Schedule(Date date) {
     	setDateScheduled(date);

@@ -8,5 +8,4 @@ public interface Groups extends Facility {
 	public Facility addNewFacility(Facility facility);
 	public void removeFacility(int id);
 	public List<Facility> requestAvailFacility();
-	//public LinkedList requestFacilityInfo();
 }

@@ -93,7 +93,4 @@ public class FacilityUsePackageTest {
 		int days = (int)room1.getUsageLog().calcUsageRate(start, end);
 		assertEquals(days, 10);
 	}
-	
-	
-
 }

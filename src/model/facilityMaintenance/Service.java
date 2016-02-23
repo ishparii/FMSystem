@@ -7,11 +7,7 @@ public class Service {
     private Timestamp serviceTime;
     private String descrription;
     
-    private Cost cost;
-    
-    public Service() {
-    	setCost(new Cost());
-    }
+    private Cost cost = new Cost();
 
 	public int getServiceID() {
 		return serviceID;

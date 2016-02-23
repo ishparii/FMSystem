@@ -7,10 +7,6 @@ import java.util.*;
 public class UsageLog {
     private List<Usage> usages = new ArrayList<Usage>();
     private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-	
-//	public UsageLog(Usage ... usage) {
-//    	this.setUsages(Arrays.asList(usage));
-//    }
 
 	//calculates usage rate in percentages during given interval
 	//assuming facility can have one usage at a time

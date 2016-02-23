@@ -81,7 +81,6 @@ public class FacilityDAO {
 				mPS.executeUpdate();
 			}
 		}
-		
 			
 		if (mPS != null) {
 			rPS.close();

@@ -51,6 +51,4 @@ public class Address {
 	public void setStateProvince(String stateProvince) {
 		this.stateProvince = stateProvince;
 	}
-
-
 }

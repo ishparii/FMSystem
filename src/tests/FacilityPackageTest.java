@@ -101,9 +101,5 @@ public class FacilityPackageTest {
 		
 		assertFalse(li.contains(room1));
 		assertTrue(li.contains(room2));
-		
-		
 	}
-	
-
 }

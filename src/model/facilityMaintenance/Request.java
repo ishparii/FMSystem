@@ -8,7 +8,6 @@ public class Request {
     private String textDescription;
 
     private Maintenance maintenance;
-//    private int FacilityID;
     
     public Request() {
     	setMaintenance(new Maintenance());
@@ -45,12 +44,4 @@ public class Request {
 	public void setMaintenance(Maintenance maintanence) {
 		this.maintenance = maintanence;
 	}
-
-//	public int getFacilityID() {
-//		return FacilityID;
-//	}
-//
-//	public void setFacilityID(int facilityID) {
-//		FacilityID = facilityID;
-//	}
 }

@@ -47,5 +47,4 @@ public class FacilityInspectionPackageTest {
 		
 		assertTrue(li.contains(inspection));
 	}
-
 }
