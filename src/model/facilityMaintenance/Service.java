@@ -9,6 +9,13 @@ public class Service {
     
     private Cost cost = new Cost();
 
+    
+    public float calcMaintCostForFacility() {
+    	float totalCost = cost.getLaborCost() + cost.getMaterialCost() + cost.getExtra();
+    	return totalCost;
+    }
+    
+    // getter and setter
 	public int getServiceID() {
 		return serviceID;
 	}
