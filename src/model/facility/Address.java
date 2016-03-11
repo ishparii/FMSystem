@@ -1,13 +1,29 @@
 package model.facility;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "ADDRESS")
 public class Address {
+	@Id
+	@Column(name = "ID", unique = true, nullable = false)
 	private int addressID;
+	@Column(name = "UNITNUMBER")
 	private int unitNumber;
+	@Column(name = "STREETNUMBER")
 	private int streetNumber;
+	@Column(name = "STREET" )
 	private String street;
+	@Column(name = "CITY")
 	private String city;
+	@Column(name = "STATEPROVINCE")
 	private String stateProvince;
+	@Column(name = "ZIPCODE")
 	private int zipCode;
+	
+	
+	// TODO foreign key mapping
 	
 	public int getAddressID() {
 		return addressID;

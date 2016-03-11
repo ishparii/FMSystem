@@ -1,0 +1,33 @@
+<hibernate-mapping>
+	<class name = "model.facility.Group" table = "FLOOR" entity-name = "floorObjectTable">
+		<meta attribute = "class-description">Group object, referring to FLOOR table </meta>
+		<id name = "facilityID" type = "int" column = "FLOOR_ID">
+			<generator class = "assigned" />
+		</id>
+		<property name = "facilityName" column = "NAME" />
+		<property name = "facilityOwner" column = "OWNER" />
+		<property name = "usageType" column = "USAGETYPE" />
+		<property name = "facilityType" column = "FACILITYTYPE" />		
+		<one-to-one name = "address" class = "model.facility.Address" cascade = "all" />
+		<one-to-one name = "manager" class = "model.facility.Manager" cascade = "all" />
+		<one-to-one name = "inspectionLog" class = "model.inspection.InspectionLog" cascade = "all" />
+		<one-to-one name = "maintenanceLog" class = "model.facilityMaintenance.MaintenanceLog" cascade = "all" />
+		<one-to-one name = "usageLog" class = "model.facilityUse.UsageLog" cascade = "all" />	
+	</class>
+	
+	<class name = "model.facility.Group" table = "BUILDING" entity-name = "buildingObjectTable">
+		<meta attribute = "class-description">Group object, referring to BUILDING table </meta>
+		<id name = "facilityID" type = "int" column = "BUILDING_ID">
+			<generator class = "assigned" />
+		</id>
+		<property name = "facilityName" column = "NAME" />
+		<property name = "facilityOwner" column = "OWNER" />
+		<property name = "usageType" column = "USAGETYPE" />
+		<property name = "facilityType" column = "FACILITYTYPE" />
+		<one-to-one name = "address" class = "model.facility.Address" cascade = "all" />
+		<one-to-one name = "manager" class = "model.facility.Manager" cascade = "all" />
+		<one-to-one name = "inspectionLog" class = "model.inspection.InspectionLog" cascade = "all" />
+		<one-to-one name = "maintenanceLog" class = "model.facilityMaintenance.MaintenanceLog" cascade = "all" />
+		<one-to-one name = "usageLog" class = "model.facilityUse.UsageLog" cascade = "all" />
+	</class>
+</hibernate-mapping>
