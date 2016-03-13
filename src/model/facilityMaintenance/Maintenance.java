@@ -3,29 +3,29 @@ package model.facilityMaintenance;
 import java.util.*;
 
 public class Maintenance {
-    private int maintenanceID;
-    private String status = "pending";
-    private boolean priority;
-    private String maintenanceType;
-    private String issueDescription;
+	private int maintenanceID;
+	private String status = "pending";
+	private boolean priority;
+	private String maintenanceType;
+	private String issueDescription;
 
-    private Schedule schedule;
+	private Schedule schedule;
 
-    public Schedule getSchedule() {
-        return schedule;
-    }
-    
-    public void setSchedule(Schedule schedule) {
-        this.schedule = schedule;
-    }
+	public Schedule getSchedule() {
+		return schedule;
+	}
 
-    //creates new Schedule object and sets schedule time
-    public Schedule scheduleMaintenance(Date date) {
-    	Schedule s = new Schedule(date);
-        setSchedule(s);
-        setStatus("scheduled");
-        return s;
-    }
+	public void setSchedule(Schedule schedule) {
+		this.schedule = schedule;
+	}
+
+	// creates new Schedule object and sets schedule time
+	public Schedule scheduleMaintenance(Date date) {
+		Schedule s = new Schedule(date);
+		setSchedule(s);
+		setStatus("scheduled");
+		return s;
+	}
 
 	public int getMaintenanceID() {
 		return maintenanceID;
@@ -66,6 +66,5 @@ public class Maintenance {
 	public void setIssueDescription(String issueDescription) {
 		this.issueDescription = issueDescription;
 	}
-
 
 }

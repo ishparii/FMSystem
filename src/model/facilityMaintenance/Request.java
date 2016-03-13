@@ -3,15 +3,15 @@ package model.facilityMaintenance;
 import java.util.Date;
 
 public class Request {
-    private int requestID;
-    private Date dateRequested;
-    private String textDescription;
+	private int requestID;
+	private Date dateRequested;
+	private String textDescription;
 
-    private Maintenance maintenance;
-    
-    public Request() {
-    	setMaintenance(new Maintenance());
-    }
+	private Maintenance maintenance;
+
+	public Request() {
+		setMaintenance(new Maintenance());
+	}
 
 	public int getRequestID() {
 		return requestID;
