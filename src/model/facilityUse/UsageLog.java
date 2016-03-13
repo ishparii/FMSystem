@@ -4,8 +4,8 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class UsageLog {
-	private List<Usage> usages = new ArrayList<Usage>();
+public class UsageLog implements IUsageLog {
+	private List<IUsage> usages;
 	private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
 	// calculates usage rate in percentages during given interval
@@ -13,7 +13,7 @@ public class UsageLog {
 	public double calcUsageRate(Date start, Date end) {
 		int diffInDays = (int) ((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24));
 		int usageDays = 0;
-		for (Usage u : usages) {
+		for (IUsage u : usages) {
 			Date usageStartDate = u.getStartDate();
 			Date usageEndDate = u.getEndDate();
 			int currentUsageInDays = 0;
@@ -39,8 +39,8 @@ public class UsageLog {
 
 	// prints to console info about all usages of the facility
 	// and returns the list of them
-	public List<Usage> listActualUsage() {
-		for (Usage u : usages) {
+	public List<IUsage> listActualUsage() {
+		for (IUsage u : usages) {
 			System.out.print(u.getUser().getfName() + " " + u.getUser().getlName() + " started using this facility on "
 					+ df.format(u.getStartDate()) + " for " + u.getUsageType() + " purpose");
 			if (u.getEndDate() != null) {
@@ -54,8 +54,8 @@ public class UsageLog {
 
 	// sets the most recent Usage end usage date to todays date
 	// and return that Usage
-	public Usage vacateFacility() {
-		Usage currentUsage = usages.get(0);
+	public IUsage vacateFacility() {
+		IUsage currentUsage = usages.get(0);
 		if (currentUsage.getEndDate() == null) {
 			Date todaysDate = Calendar.getInstance().getTime();
 			currentUsage.setEndDate(todaysDate);
@@ -68,8 +68,8 @@ public class UsageLog {
 
 	// creates new Usage object
 	// and returns it back
-	public Usage assignFacilityToUse() {
-		Usage newUsage = new Usage();
+	public IUsage assignFacilityToUse() {
+		IUsage newUsage = new Usage();
 		usages.add(0, newUsage);
 		return newUsage;
 	}
@@ -77,7 +77,7 @@ public class UsageLog {
 	// returns true if the facility was in use (even partially) during given
 	// interval
 	public boolean isInUseDuringInterval(Date start, Date end) {
-		for (Usage u : usages) {
+		for (IUsage u : usages) {
 			Date usageStartDate = u.getStartDate();
 			Date usageEndDate = u.getEndDate();
 			if (usageStartDate.after(start) && usageStartDate.before(end)) {
@@ -89,11 +89,11 @@ public class UsageLog {
 		return false;
 	}
 
-	public List<Usage> getUsages() {
+	public List<IUsage> getUsages() {
 		return usages;
 	}
 
-	public void setUsages(List<Usage> usages) {
+	public void setUsages(List<IUsage> usages) {
 		this.usages = usages;
 	}
 

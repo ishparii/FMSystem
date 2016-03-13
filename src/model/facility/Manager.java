@@ -1,6 +1,6 @@
 package model.facility;
 
-public class Manager {
+public class Manager implements IManager {
 	private int managerID;
 	private String fName;
 	private String lName;

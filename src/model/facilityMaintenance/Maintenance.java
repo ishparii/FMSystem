@@ -2,26 +2,26 @@ package model.facilityMaintenance;
 
 import java.util.*;
 
-public class Maintenance {
+public class Maintenance implements IMaintenance {
 	private int maintenanceID;
 	private String status = "pending";
 	private boolean priority;
 	private String maintenanceType;
 	private String issueDescription;
 
-	private Schedule schedule;
+	private ISchedule schedule;
 
-	public Schedule getSchedule() {
+	public ISchedule getSchedule() {
 		return schedule;
 	}
 
-	public void setSchedule(Schedule schedule) {
+	public void setSchedule(ISchedule schedule) {
 		this.schedule = schedule;
 	}
 
 	// creates new Schedule object and sets schedule time
-	public Schedule scheduleMaintenance(Date date) {
-		Schedule s = new Schedule(date);
+	public ISchedule scheduleMaintenance(Date date) {
+		ISchedule s = new Schedule(date);
 		setSchedule(s);
 		setStatus("scheduled");
 		return s;

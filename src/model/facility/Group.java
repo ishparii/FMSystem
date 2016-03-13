@@ -1,11 +1,8 @@
 package model.facility;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
-import model.facilityUse.Usage;
+import model.facilityUse.IUsage;
 
 public class Group extends Facility {
 
@@ -55,7 +52,7 @@ public class Group extends Facility {
 	public List<Facility> requestAvailFacility() {
 		List<Facility> availableFacility = new ArrayList<>();
 		for (Facility f : facilities) {
-			Usage u = f.getUsageLog().getUsages().get(0);
+			IUsage u = f.getUsageLog().getUsages().get(0);
 			// available facility
 			if (u.getEndDate() == null) {
 				availableFacility.add(f);

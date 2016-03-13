@@ -2,7 +2,7 @@ package model.inspection;
 
 import java.util.Date;
 
-public class Inspection {
+public class Inspection implements IInspection {
 	private int inspectionID;
 	private String inspectionType;
 	private Date inspectionDate;

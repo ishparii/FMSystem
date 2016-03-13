@@ -1,6 +1,6 @@
 package model.facilityUse;
 
-public class User {
+public class User implements IUser {
 	private int userID;
 	private String fName;
 	private String lName;

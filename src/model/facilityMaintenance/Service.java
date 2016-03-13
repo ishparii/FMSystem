@@ -2,12 +2,12 @@ package model.facilityMaintenance;
 
 import java.sql.Timestamp;
 
-public class Service {
+public class Service implements IService {
 	private int serviceID;
 	private Timestamp serviceTime;
 	private String descrription;
 
-	private Cost cost = new Cost();
+	private ICost cost;
 
 	public float calcMaintCostForFacility() {
 		float totalCost = cost.getLaborCost() + cost.getMaterialCost() + cost.getExtra();
@@ -31,11 +31,11 @@ public class Service {
 		this.serviceTime = serviceTime;
 	}
 
-	public Cost getCost() {
+	public ICost getCost() {
 		return cost;
 	}
 
-	public void setCost(Cost cost) {
+	public void setCost(ICost cost) {
 		this.cost = cost;
 	}
 

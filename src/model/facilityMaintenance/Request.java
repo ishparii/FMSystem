@@ -2,12 +2,12 @@ package model.facilityMaintenance;
 
 import java.util.Date;
 
-public class Request {
+public class Request implements IRequest {
 	private int requestID;
 	private Date dateRequested;
 	private String textDescription;
 
-	private Maintenance maintenance;
+	private IMaintenance maintenance;
 
 	public Request() {
 		setMaintenance(new Maintenance());
@@ -37,11 +37,11 @@ public class Request {
 		this.textDescription = textDescription;
 	}
 
-	public Maintenance getMaintenance() {
+	public IMaintenance getMaintenance() {
 		return maintenance;
 	}
 
-	public void setMaintenance(Maintenance maintanence) {
+	public void setMaintenance(IMaintenance maintanence) {
 		this.maintenance = maintanence;
 	}
 }

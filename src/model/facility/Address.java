@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "ADDRESS")
-public class Address {
+public class Address implements IAddress {
 	@Id
 	@Column(name = "ID", unique = true, nullable = false)
 	private int addressID;

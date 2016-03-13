@@ -2,10 +2,10 @@ package model.facilityMaintenance;
 
 import java.util.Date;
 
-public class Schedule {
+public class Schedule implements ISchedule {
 	private int scheduleID;
 	private Date dateScheduled;
-	private Service service = new Service();
+	private IService service;
 
 	public Schedule(Date date) {
 		setDateScheduled(date);
@@ -28,11 +28,11 @@ public class Schedule {
 		this.dateScheduled = dateScheduled;
 	}
 
-	public Service getService() {
+	public IService getService() {
 		return service;
 	}
 
-	public void setService(Service service) {
+	public void setService(IService service) {
 		this.service = service;
 	}
 }

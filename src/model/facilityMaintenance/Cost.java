@@ -1,6 +1,6 @@
 package model.facilityMaintenance;
 
-public class Cost {
+public class Cost implements ICost {
 	private int costID;
 	private float laborCost;
 	private float materialCost;

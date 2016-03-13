@@ -1,20 +1,21 @@
 package model.facility;
 
 import java.util.Map;
-import model.inspection.InspectionLog;
-import model.facilityMaintenance.MaintenanceLog;
-import model.facilityUse.UsageLog;
+
+import model.inspection.IInspectionLog;
+import model.facilityMaintenance.IMaintenanceLog;
+import model.facilityUse.IUsageLog;
 
 public abstract class Facility {
 	private int facilityID;
 	private String facilityName;
 	private String facilityOwner;
 	private String usageType;
-	private InspectionLog inspectionLog;
-	private MaintenanceLog maintenanceLog;
-	private UsageLog usageLog;
-	private Address address;
-	private Manager manager;
+	private IInspectionLog inspectionLog;
+	private IMaintenanceLog maintenanceLog;
+	private IUsageLog usageLog;
+	private IAddress address;
+	private IManager manager;
 
 	public abstract Map<String, String> getFacilityInfo();
 
@@ -51,43 +52,43 @@ public abstract class Facility {
 		this.usageType = usageType;
 	}
 
-	public InspectionLog getInspectionLog() {
+	public IInspectionLog getInspectionLog() {
 		return inspectionLog;
 	}
 
-	public void setInspectionLog(InspectionLog inspectionLog) {
+	public void setInspectionLog(IInspectionLog inspectionLog) {
 		this.inspectionLog = inspectionLog;
 	}
 
-	public MaintenanceLog getMaintenanceLog() {
+	public IMaintenanceLog getMaintenanceLog() {
 		return maintenanceLog;
 	}
 
-	public void setMaintenanceLog(MaintenanceLog maintenanceLog) {
+	public void setMaintenanceLog(IMaintenanceLog maintenanceLog) {
 		this.maintenanceLog = maintenanceLog;
 	}
 
-	public UsageLog getUsageLog() {
+	public IUsageLog getUsageLog() {
 		return usageLog;
 	}
 
-	public void setUsageLog(UsageLog usageLog) {
+	public void setUsageLog(IUsageLog usageLog) {
 		this.usageLog = usageLog;
 	}
 
-	public Address getAddress() {
+	public IAddress getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(IAddress address) {
 		this.address = address;
 	}
 
-	public Manager getManager() {
+	public IManager getManager() {
 		return manager;
 	}
 
-	public void setManager(Manager manager) {
+	public void setManager(IManager manager) {
 		this.manager = manager;
 	}
 

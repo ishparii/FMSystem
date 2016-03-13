@@ -2,12 +2,12 @@ package model.facilityUse;
 
 import java.util.Date;
 
-public class Usage {
+public class Usage implements IUsage {
 	private int usageID;
 	private String usageType;
 	private Date startDate;
 	private Date endDate;
-	private User user;
+	private IUser user;
 
 	public int getUsageID() {
 		return usageID;
@@ -41,11 +41,11 @@ public class Usage {
 		this.endDate = endDate;
 	}
 
-	public User getUser() {
+	public IUser getUser() {
 		return user;
 	}
 
-	public void setUser(User user) {
+	public void setUser(IUser user) {
 		this.user = user;
 	}
 }
