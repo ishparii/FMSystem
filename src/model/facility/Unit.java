@@ -3,7 +3,7 @@ package model.facility;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Unit extends Facility{
+public class Unit extends Facility {
 	@Override
 	public Map<String, String> getFacilityInfo() {
 		Map<String, String> info = new HashMap<String, String>();
@@ -11,12 +11,14 @@ public class Unit extends Facility{
 		info.put("name", this.getFacilityName());
 		info.put("owner", this.getFacilityOwner());
 		info.put("type", "unit");
-		
-//		for (Map.Entry<String, String> entry : info.entrySet()) {
-//			System.out.println(entry.getKey() + ": " + entry.getValue());
-//		}
-		
+		info.put("manager", this.getManager().getfName() + " " + this.getManager().getlName());
+		info.put("address", this.getAddress().toString());
+
+		for (Map.Entry<String, String> entry : info.entrySet()) {
+			System.out.println(entry.getKey() + ": " + entry.getValue());
+		}
+
 		return info;
 	}
-	
+
 }

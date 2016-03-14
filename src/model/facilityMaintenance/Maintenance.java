@@ -3,39 +3,33 @@ package model.facilityMaintenance;
 import java.util.*;
 import javax.persistence.*;
 
-
 @Entity
 @Table(name = "MAINTENANCE")
-public class Maintenance {
-	// TODO FK
-    private int maintenanceID;
-    @Column(name = "STATUS")
-    private String status = "pending";
-    @Column(name = "PRIORITY")
-    private boolean priority;
-    @Column(name = "MAINTENANCETYPE")
-    private String maintenanceType;
-    @Column(name = "ISSUEDESCRIPTION")
-    private String issueDescription;
+public class Maintenance implements IMaintenance {
+	//TODO FK
+	private int maintenanceID;
+	private String status = "pending";
+	private boolean priority;
+	private String maintenanceType;
+	private String issueDescription;
 
-    private Schedule schedule;
+	private ISchedule schedule;
 
-    
-    public Schedule getSchedule() {
-        return schedule;
-    }
-    
-    public void setSchedule(Schedule schedule) {
-        this.schedule = schedule;
-    }
+	public ISchedule getSchedule() {
+		return schedule;
+	}
 
-    //creates new Schedule object and sets schedule time
-    public Schedule scheduleMaintenance(Date date) {
-    	Schedule s = new Schedule(date);
-        setSchedule(s);
-        setStatus("scheduled");
-        return s;
-    }
+	public void setSchedule(ISchedule schedule) {
+		this.schedule = schedule;
+	}
+
+	// creates new Schedule object and sets schedule time
+	public ISchedule scheduleMaintenance(Date date) {
+		ISchedule s = new Schedule(date);
+		setSchedule(s);
+		setStatus("scheduled");
+		return s;
+	}
 
 	public int getMaintenanceID() {
 		return maintenanceID;
@@ -76,6 +70,5 @@ public class Maintenance {
 	public void setIssueDescription(String issueDescription) {
 		this.issueDescription = issueDescription;
 	}
-
 
 }

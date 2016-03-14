@@ -3,24 +3,16 @@ package model.facilityMaintenance;
 import java.util.Date;
 import javax.persistence.*;
 
+public class Request implements IRequest {
+	private int requestID;
+	private Date dateRequested;
+	private String textDescription;
 
-@Entity
-@Table(name = "REQUEST")
-public class Request {
-	// TODO FK
-	@Id
-	@Column(name = "REQUEST_ID", nullable = false, unique = true)
-    private int requestID;
-	@Column(name = "DATEREQUESTED")
-    private Date dateRequested;
-	@Column(name = "TEXTDESCRIPTION")
-    private String textDescription;
+	private IMaintenance maintenance;
 
-    private Maintenance maintenance;
-    
-    public Request() {
-    	setMaintenance(new Maintenance());
-    }
+	public Request() {
+		setMaintenance(new Maintenance());
+	}
 
 	public int getRequestID() {
 		return requestID;
@@ -46,11 +38,11 @@ public class Request {
 		this.textDescription = textDescription;
 	}
 
-	public Maintenance getMaintenance() {
+	public IMaintenance getMaintenance() {
 		return maintenance;
 	}
 
-	public void setMaintenance(Maintenance maintanence) {
+	public void setMaintenance(IMaintenance maintanence) {
 		this.maintenance = maintanence;
 	}
 }

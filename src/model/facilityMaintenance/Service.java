@@ -2,20 +2,19 @@ package model.facilityMaintenance;
 
 import java.sql.Timestamp;
 
-public class Service {
-    private int serviceID;
-    private Timestamp serviceTime;
-    private String descrription;
-    
-    private Cost cost = new Cost();
+public class Service implements IService {
+	private int serviceID;
+	private Timestamp serviceTime;
+	private String descrription;
 
-    
-    public float calcMaintCostForFacility() {
-    	float totalCost = cost.getLaborCost() + cost.getMaterialCost() + cost.getExtra();
-    	return totalCost;
-    }
-    
-    // getter and setter
+	private ICost cost;
+
+	public float calcMaintCostForFacility() {
+		float totalCost = cost.getLaborCost() + cost.getMaterialCost() + cost.getExtra();
+		return totalCost;
+	}
+
+	// getter and setter
 	public int getServiceID() {
 		return serviceID;
 	}
@@ -32,11 +31,11 @@ public class Service {
 		this.serviceTime = serviceTime;
 	}
 
-	public Cost getCost() {
+	public ICost getCost() {
 		return cost;
 	}
 
-	public void setCost(Cost cost) {
+	public void setCost(ICost cost) {
 		this.cost = cost;
 	}
 
