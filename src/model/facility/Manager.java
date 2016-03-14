@@ -1,10 +1,22 @@
 package model.facility;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "MANAGER")
 public class Manager {
+	// TODO FK
+	@Id
+	@Column(name = "MANAGER_ID", unique = true, nullable = false)
 	private int managerID;
+	@Column(name = "FNAME")
 	private String fName;
+	@Column(name = "LNAME")
 	private String lName;
+	@Column(name = "COMPANYNAME")
 	private String companyName;
+	@Column(name = "PHONE")
 	private String phone;
 	
 	public int getManagerID() {

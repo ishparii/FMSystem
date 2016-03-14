@@ -1,10 +1,19 @@
 package model.facilityMaintenance;
 
 import java.util.Date;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name = "REQUEST")
 public class Request {
+	// TODO FK
+	@Id
+	@Column(name = "REQUEST_ID", nullable = false, unique = true)
     private int requestID;
+	@Column(name = "DATEREQUESTED")
     private Date dateRequested;
+	@Column(name = "TEXTDESCRIPTION")
     private String textDescription;
 
     private Maintenance maintenance;

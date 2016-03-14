@@ -1,9 +1,18 @@
 package model.facilityMaintenance;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "COST")
 public class Cost {
+	// TODO FK
 	private int costID;
+	@Column(name = "LABORCOST")
 	private float laborCost;
+	@Column(name = "MATERIALCOST")
 	private float materialCost;
+	@Column(name = "EXTRA")
 	private float extra;
 	
 	public int getCostID() {

@@ -1,9 +1,19 @@
 package model.facilityUse;
 
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "USER")
 public class User {
-    private int userID;
+    // TODO FK
+	
+	private int userID;
+	@Column(name = "FNAME")
     private String fName;
+	@Column(name = "LNAME")
     private String lName;
+	@Column(name = "GENDER")
     private String gender;  
     
 	public int getUserID() {

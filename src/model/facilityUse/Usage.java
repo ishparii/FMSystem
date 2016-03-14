@@ -1,12 +1,23 @@
 package model.facilityUse;
 
 import java.util.Date;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name = "USAGE")
 public class Usage {
+    @Id
+    @Column(name = "USAGE_ID", unique = true, nullable = false)
     private int usageID;
+    @Column(name = "USAGETYPE")
     private String usageType;
+    @Column(name = "STARTDATE")
     private Date startDate;
+    @Column(name = "ENDDATE")
     private Date endDate;
+    
+    // TODO FK
     private User user;
     
 	public int getUsageID() {

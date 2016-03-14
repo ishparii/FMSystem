@@ -1,16 +1,26 @@
 package model.facilityMaintenance;
 
 import java.util.*;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name = "MAINTENANCE")
 public class Maintenance {
+	// TODO FK
     private int maintenanceID;
+    @Column(name = "STATUS")
     private String status = "pending";
+    @Column(name = "PRIORITY")
     private boolean priority;
+    @Column(name = "MAINTENANCETYPE")
     private String maintenanceType;
+    @Column(name = "ISSUEDESCRIPTION")
     private String issueDescription;
 
     private Schedule schedule;
 
+    
     public Schedule getSchedule() {
         return schedule;
     }

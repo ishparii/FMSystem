@@ -1,12 +1,22 @@
 package model.inspection;
 
 import java.util.Date;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name = "INSPECTION")
 public class Inspection {
-    private int inspectionID;
+    @Id
+	@Column(name = "INSEPCTION_ID", unique = true, nullable = false)
+	private int inspectionID;
+    @Column(name = "INSPECTIONTYPE")
     private String inspectionType;
+    @Column(name = "INSEPCTIONDATE")
     private Date inspectionDate;
+    @Column(name = "INSPECTOR")
     private String inspector;
+    @Column(name = "OUTCOME")
     private String outcome;
     
 	public int getInspectionID() {

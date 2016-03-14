@@ -6,6 +6,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "ADDRESS")
 public class Address {
+	// TODO FK
 	@Id
 	@Column(name = "ID", unique = true, nullable = false)
 	private int addressID;
@@ -22,8 +23,6 @@ public class Address {
 	@Column(name = "ZIPCODE")
 	private int zipCode;
 	
-	
-	// TODO foreign key mapping
 	
 	public int getAddressID() {
 		return addressID;
