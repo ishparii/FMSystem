@@ -5,10 +5,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "MANAGER")
-
-	
-	@Id
-	@Column(name = "MANAGER_ID", unique = true, nullable = false)
 public class Manager implements IManager {
 	// TODO FK
 	private int managerID;

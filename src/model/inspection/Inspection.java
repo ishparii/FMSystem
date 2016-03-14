@@ -3,24 +3,8 @@ package model.inspection;
 import java.util.Date;
 import javax.persistence.*;
 
-<<<<<<< HEAD
-
 @Entity
 @Table(name = "INSPECTION")
-public class Inspection {
-    @Id
-	@Column(name = "INSEPCTION_ID", unique = true, nullable = false)
-	private int inspectionID;
-    @Column(name = "INSPECTIONTYPE")
-    private String inspectionType;
-    @Column(name = "INSEPCTIONDATE")
-    private Date inspectionDate;
-    @Column(name = "INSPECTOR")
-    private String inspector;
-    @Column(name = "OUTCOME")
-    private String outcome;
-    
-=======
 public class Inspection implements IInspection {
 	private int inspectionID;
 	private String inspectionType;
@@ -28,7 +12,6 @@ public class Inspection implements IInspection {
 	private String inspector;
 	private String outcome;
 
->>>>>>> 9eae622893eb46250094911f52103fb6ee486190
 	public int getInspectionID() {
 		return inspectionID;
 	}
