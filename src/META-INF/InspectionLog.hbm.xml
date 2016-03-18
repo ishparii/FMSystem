@@ -1,0 +1,13 @@
+<hibernate-mapping>
+	<class name = "model.inspection.InspectionLog" table = "INSEPCTIONLOG">
+		<id name = "inspectionLogID" column = "INSPECTIONLOG_ID">
+			<generator class = "assigned"></generator>
+		</id>
+		
+		<list name = "inspections" cascade = "all" table = "INSPECTION">
+			<key column = "INSPECTIONLOG_ID" />
+			<index column = "INSPECTION_INDEX" />
+			<one-to-many class = "Inspection" />
+		</list>	
+	</class>
+</hibernate-mapping>

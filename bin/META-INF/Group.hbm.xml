@@ -14,10 +14,15 @@
 		
 		<many-to-one name = "manager" class = "model.facility.Manager" column = "MANAGER_ID"
 					 unique = "true" cascade = "all"></many-to-one>
-		<!-- 
- 		<one-to-one name = "inspectionLog" class = "model.inspection.InspectionLog" cascade = "all" />
-		<one-to-one name = "maintenanceLog" class = "model.facilityMaintenance.MaintenanceLog" cascade = "all" />
-		<one-to-one name = "usageLog" class = "model.facilityUse.UsageLog" cascade = "all" />	 -->
+					 
+		<many-to-one name = "inspectionLog" class = "model.inspection.InspectionLog" 
+					 column = "INSPECTIONLOG_ID" unique = "true" cascade = "all"></many-to-one>
+					 
+		<many-to-one name = "maintenanceLog" class = "model.facilityMaintenance.MaintenanceLog"
+					 column = "MAINTENANCELOG_ID" unique = "true" cascade = "all"></many-to-one>
+		
+		<many-to-one name = "usageLog" class = "model.facilityUse.UsageLog" column = "USAGELOG_ID"
+					 unique = "true" cascade = "all"></many-to-one>
 	</class>
 	
 	<class name = "model.facility.Group" table = "BUILDING" entity-name = "buildingObjectTable">
@@ -35,9 +40,14 @@
 					 
 		<many-to-one name = "manager" class = "model.facility.Manager" column = "MANAGER_ID"
 					 unique = "true" cascade = "all"></many-to-one>
-		<!-- 
-		<one-to-one name = "inspectionLog" class = "model.inspection.InspectionLog" cascade = "all" />
-		<one-to-one name = "maintenanceLog" class = "model.facilityMaintenance.MaintenanceLog" cascade = "all" />
-		<one-to-one name = "usageLog" class = "model.facilityUse.UsageLog" cascade = "all" /> -->
+					 
+		<many-to-one name = "inspectionLog" class = "model.inspection.InspectionLog" 
+					 column = "INSPECTIONLOG_ID" unique = "true" cascade = "all"></many-to-one>
+					 
+		<many-to-one name = "maintenanceLog" class = "model.facilityMaintenance.MaintenanceLog"
+					 column = "MAINTENANCELOG_ID" unique = "true" cascade = "all"></many-to-one>
+		
+		<many-to-one name = "usageLog" class = "model.facilityUse.UsageLog" column = "USAGELOG_ID"
+					 unique = "true" cascade = "all"></many-to-one>
 	</class>
 </hibernate-mapping>

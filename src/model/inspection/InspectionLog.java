@@ -2,10 +2,15 @@ package model.inspection;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.*;
+import java.util.List;
+import javax.persistence.*;
 
+
+@Entity
+@Table(name = "INSPECTIONLOG" )
 public class InspectionLog implements IInspectionLog {
-
+	private int inspectionLogID;
+	
 	private List<IInspection> inspections;
 
 	public List<IInspection> listInspection() {
@@ -26,5 +31,13 @@ public class InspectionLog implements IInspectionLog {
 		inspections.add(inspection);
 		System.out.println("Inspection added.");
 		return inspection;
+	}
+
+	public int getInspectionLogID() {
+		return inspectionLogID;
+	}
+
+	public void setInspectionLogID(int inspectionLogID) {
+		this.inspectionLogID = inspectionLogID;
 	}
 }
