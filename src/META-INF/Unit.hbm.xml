@@ -2,15 +2,22 @@
 	<class name = "model.facility.Unit" table = "ROOM">
 		<meta attribute = "class-description">Unit object, referring to ROOM table </meta>
 		<id name = "facilityID" type = "int" column = "ROOM_ID">
-			<generator class = "assigned" />
+			<generator class = "assigned"></generator>	
 		</id>
+		
 		<property name = "facilityName" column = "NAME" />
 		<property name = "facilityOwner" column = "OWNER" />
 		<property name = "usageType" column = "USAGETYPE" />
-		<one-to-one name = "address" class = "model.facility.Address" cascade = "all" />
-		<one-to-one name = "manager" class = "model.facility.Manager" cascade = "all" />
-		<!-- <one-to-one name = "inspectionLog" class = "model.inspection.InspectionLog" cascade = "all" />
+		
+		<many-to-one name = "address" class = "model.facility.Address" column = "ADDRESS_ID" 
+					 unique = "true" cascade = "all"></many-to-one>
+		
+		<many-to-one name = "manager" class = "model.facility.Manager" column = "MANAGER_ID"
+					 unique = "true" cascade = "all"></many-to-one>
+		
+		
+<!-- 		<one-to-one name = "inspectionLog" class = "model.inspection.InspectionLog" cascade = "all" />
 		<one-to-one name = "maintenanceLog" class = "model.facilityMaintenance.MaintenanceLog" cascade = "all" />
-		<one-to-one name = "usageLog" class = "model.facilityUse.UsageLog" cascade = "all" /> -->
+		<one-to-one name = "usageLog" class = "model.facilityUse.UsageLog" cascade = "all" />  -->
 	</class>
 </hibernate-mapping>

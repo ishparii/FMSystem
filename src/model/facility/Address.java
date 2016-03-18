@@ -1,29 +1,17 @@
 package model.facility;
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "ADDRESS")
 
 public class Address implements IAddress {
-	// TODO FK
-	@Id
-	@Column(name = "ID", unique = true, nullable = false)
 	private int addressID;
-	@Column(name = "UNITNUMBER")
 	private int unitNumber;
-	@Column(name = "STREETNUMBER")
 	private int streetNumber;
-	@Column(name = "STREET")
 	private String street;
-	@Column(name = "CITY")
 	private String city;
-	@Column(name = "STATEPROVINCE")
 	private String stateProvince;
-	@Column(name = "ZIPCODE")
 	private int zipCode;
+//	private String addressType;   // Address type for different address tables
 
-	// TODO foreign key mapping
 
 	public int getAddressID() {
 		return addressID;
@@ -86,4 +74,12 @@ public class Address implements IAddress {
 		return ("" + getStreetNumber() + " " + getStreet() + ", " + getUnitNumber() + "/n" +
 				getCity() + ", " + getStateProvince() + " " + getZipCode());
 	}
+
+//	public String getAddressType() {
+//		return addressType;
+//	}
+//
+//	public void setAddressType(String addressType) {
+//		this.addressType = addressType;
+//	}
 }

@@ -3,6 +3,8 @@ package model.facilityUse;
 import java.util.Date;
 import javax.persistence.*;
 
+@Entity
+@Table(name = "Usage")
 public class Usage implements IUsage {
 	private int usageID;
 	private String usageType;

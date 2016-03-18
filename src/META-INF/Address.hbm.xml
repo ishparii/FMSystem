@@ -1,0 +1,27 @@
+<hibernate-mapping>
+	<class name = "model.facility.Address" table = "ADDRESS" entity-name = "Address">
+		<meta attribute = "class-description">The address for facility</meta>
+		<id name = "addressID" type = "int" column = "ADDRESS_ID">
+			<generator class = "assigned" />
+		</id>
+		
+		<property name = "unitNumber" column = "UNITNUMBER" />
+		<property name = "street" column = "STREET" />
+		<property name = "city" column = "CITY" />
+		<property name = "stateProvince" column = "STATEPROVINCE" />
+		<property name = "zipCode" column = "ZIPCODE" />
+	</class>
+	
+<!-- 		<class name = "model.facility.Address" table = "GROUPADDRESS" entity-name = "GroupAddress">
+		<meta attribute = "class-description">The address for floor and building</meta>
+		<id name = "addressID" type = "int" column = "GROUPADDRESS_ID">
+			<generator class = "assigned" />
+		</id>
+		
+		<property name = "street" column = "STREET" />
+		<property name = "city" column = "CITY" />
+		<property name = "stateProvince" column = "STATEPROVINCE" />
+		<property name = "zipCode" column = "ZIPCODE" />	
+		<property name = "addressType" column = "ADDRESSTYPE" /> 
+	</class>  -->
+</hibernate-mapping>

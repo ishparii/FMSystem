@@ -14,6 +14,8 @@ public abstract class Facility {
 	private IInspectionLog inspectionLog;
 	private IMaintenanceLog maintenanceLog;
 	private IUsageLog usageLog;
+	
+	
 	private IAddress address;
 	private IManager manager;
 

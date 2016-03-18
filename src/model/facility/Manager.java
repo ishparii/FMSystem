@@ -1,22 +1,14 @@
 package model.facility;
 
-import javax.persistence.*;
 
-
-@Entity
-@Table(name = "MANAGER")
 public class Manager implements IManager {
-	// TODO FK
-	private int managerID;
-	@Column(name = "FNAME")
+	private int managerID;	
 	private String fName;
-	@Column(name = "LNAME")
 	private String lName;
-	@Column(name = "COMPANYNAME")
 	private String companyName;
-	@Column(name = "PHONE")
 	private String phone;
-
+	
+	
 	public int getManagerID() {
 		return managerID;
 	}
