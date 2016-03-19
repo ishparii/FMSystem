@@ -1,10 +1,5 @@
 package model.facilityUse;
 
-import javax.persistence.*;
-
-
-@Entity
-@Table(name = "USER")
 public class User implements IUser {
 	private int userID;
 	private String fName;

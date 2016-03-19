@@ -5,8 +5,10 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class MaintenanceLog implements IMaintenanceLog {
-	private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+	private int maintenanceLogID;
 	private List<IRequest> requests;
+
+	private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
 	// returns a list of requests with not scheduled maintenances
 	// and prints to console information about them
@@ -86,5 +88,13 @@ public class MaintenanceLog implements IMaintenanceLog {
 
 	public void setRequests(List<IRequest> requests) {
 		this.requests = requests;
+	}
+
+	public int getMaintenanceLogID() {
+		return maintenanceLogID;
+	}
+
+	public void setMaintenanceLogID(int maintenanceLogID) {
+		this.maintenanceLogID = maintenanceLogID;
 	}
 }

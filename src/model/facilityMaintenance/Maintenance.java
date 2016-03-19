@@ -1,12 +1,8 @@
 package model.facilityMaintenance;
 
 import java.util.*;
-import javax.persistence.*;
 
-@Entity
-@Table(name = "MAINTENANCE")
 public class Maintenance implements IMaintenance {
-	//TODO FK
 	private int maintenanceID;
 	private String status = "pending";
 	private boolean priority;

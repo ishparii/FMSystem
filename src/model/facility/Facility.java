@@ -93,5 +93,4 @@ public abstract class Facility {
 	public void setManager(IManager manager) {
 		this.manager = manager;
 	}
-
 }

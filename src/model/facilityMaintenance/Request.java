@@ -1,10 +1,7 @@
 package model.facilityMaintenance;
 
 import java.util.Date;
-import javax.persistence.*;
 
-@Entity
-@Table(name = "REQUEST")
 public class Request implements IRequest {
 	private int requestID;
 	private Date dateRequested;

@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class UsageLog implements IUsageLog {
+	private int usageLogID;
+	
 	private List<IUsage> usages;
 	private DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -95,6 +97,14 @@ public class UsageLog implements IUsageLog {
 
 	public void setUsages(List<IUsage> usages) {
 		this.usages = usages;
+	}
+
+	public int getUsageLogID() {
+		return usageLogID;
+	}
+
+	public void setUsageLogID(int usageLogID) {
+		this.usageLogID = usageLogID;
 	}
 
 }

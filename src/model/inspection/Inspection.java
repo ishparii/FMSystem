@@ -1,10 +1,8 @@
 package model.inspection;
 
 import java.util.Date;
-import javax.persistence.*;
 
-@Entity
-@Table(name = "INSPECTION")
+
 public class Inspection implements IInspection {
 	private int inspectionID;
 	private String inspectionType;

@@ -3,11 +3,8 @@ package model.inspection;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.List;
-import javax.persistence.*;
 
 
-@Entity
-@Table(name = "INSPECTIONLOG" )
 public class InspectionLog implements IInspectionLog {
 	private int inspectionLogID;
 	

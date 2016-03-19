@@ -1,7 +1,5 @@
 package model.facility;
 
-
-
 public class Address implements IAddress {
 	private int addressID;
 	private int unitNumber;
@@ -10,8 +8,7 @@ public class Address implements IAddress {
 	private String city;
 	private String stateProvince;
 	private int zipCode;
-//	private String addressType;   // Address type for different address tables
-
+	
 
 	public int getAddressID() {
 		return addressID;
@@ -74,12 +71,4 @@ public class Address implements IAddress {
 		return ("" + getStreetNumber() + " " + getStreet() + ", " + getUnitNumber() + "/n" +
 				getCity() + ", " + getStateProvince() + " " + getZipCode());
 	}
-
-//	public String getAddressType() {
-//		return addressType;
-//	}
-//
-//	public void setAddressType(String addressType) {
-//		this.addressType = addressType;
-//	}
 }

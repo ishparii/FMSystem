@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 public class Service implements IService {
 	private int serviceID;
 	private Timestamp serviceTime;
-	private String descrription;
+	private String description;
 
 	private ICost cost;
 
@@ -40,10 +40,10 @@ public class Service implements IService {
 	}
 
 	public String getDescrription() {
-		return descrription;
+		return description;
 	}
 
 	public void setDescrription(String descrription) {
-		this.descrription = descrription;
+		this.description = descrription;
 	}
 }

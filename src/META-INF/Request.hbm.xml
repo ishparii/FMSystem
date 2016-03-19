@@ -1,0 +1,13 @@
+<hibernate-mapping>
+	<class name = "model.facilityMaintenance.Request" table = "REQUEST">
+		<id name = "requestID" column = "REQUEST_ID">
+			<generator class = "assigned"></generator>
+		</id>
+		
+		<property name = "dateRequested" column = "DATEREQUESTED" />
+		<property name = "textDescription" column = "TEXTDESCRIPTION" />
+		
+		<one-to-one name = "maintenance" class = "model.facilityMaintenance.Maintenance"
+					cascade = "all"></one-to-one>
+	</class>
+</hibernate-mapping>
