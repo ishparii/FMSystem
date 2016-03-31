@@ -11,10 +11,10 @@ public abstract class Facility {
 	private String facilityName;
 	private String facilityOwner;
 	private String usageType;
+	
 	private IInspectionLog inspectionLog;
 	private IMaintenanceLog maintenanceLog;
 	private IUsageLog usageLog;
-	
 	
 	private IAddress address;
 	private IManager manager;

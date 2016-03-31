@@ -1,4 +1,4 @@
-package dal;
+package model.dal;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
