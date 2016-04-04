@@ -1,4 +1,4 @@
-// package view;
+ package view;
 //
 // import java.sql.Timestamp;
 // import java.text.SimpleDateFormat;
@@ -11,8 +11,18 @@
 // import model.inspection.*;
 //
 //
-// public class FacilityClient{
-// public static void main (String args[]) throws Exception {
+import org.hibernate.Session;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class FacilityClient{
+	 public static void main (String args[]) throws Exception {
+		 
+		ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
+		System.out.println("***************** Application Context instantiated! ******************");
+
+	 
+	 
 // SimpleDateFormat fmt = new SimpleDateFormat("yyyy-MM-dd");
 // Date date1 = fmt.parse("2009-02-13");
 // Date date2 = fmt.parse("2013-10-10");
@@ -253,5 +263,5 @@
 //
 // inspectionDAO.setInspection(inspection1);
 // inspectionDAO.setInspection(inspection2);
-// }
-// }
+	 }
+ }
