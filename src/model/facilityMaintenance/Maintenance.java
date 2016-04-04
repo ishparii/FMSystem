@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Maintenance implements IMaintenance {
 	private int maintenanceID;
-	private String status = "pending";
+	private String status;
 	private boolean priority;
 	private String maintenanceType;
 	private String issueDescription;

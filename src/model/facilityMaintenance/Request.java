@@ -9,9 +9,9 @@ public class Request implements IRequest {
 
 	private IMaintenance maintenance;
 
-	public Request() {
-		setMaintenance(new Maintenance());
-	}
+//	public Request() {
+//		setMaintenance(new Maintenance());
+//	}
 
 	public int getRequestID() {
 		return requestID;

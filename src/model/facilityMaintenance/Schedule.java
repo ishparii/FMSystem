@@ -9,7 +9,7 @@ public class Schedule implements ISchedule {
 
 	public Schedule(Date date) {
 		setDateScheduled(date);
-		setService(new Service());
+		//setService(new Service());
 	}
 
 	public int getScheduleID() {
