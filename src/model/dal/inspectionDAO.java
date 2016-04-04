@@ -41,21 +41,21 @@ public class inspectionDAO {
 		return null;
 	}
 	
-	public void addInspectionLog(InspectionLog inspLog) {
+	public void addInspectionLog(IInspectionLog inspLog) {
 		Session session = HibernateHelper.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		session.save(inspLog);
 		session.getTransaction().commit();
 	}
 	
-	public void deleteInspectionLog(InspectionLog inspLog) {
+	public void deleteInspectionLog(IInspectionLog inspLog) {
 		Session session = HibernateHelper.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
 		session.delete(inspLog);
 		session.getTransaction().commit();
 	}
 	
-	public List<Inspection> retriveInspectionLog(int inspLogID)
+	public List<IInspection> retriveInspectionLog(int inspLogID)
     {
         try{
             Session session = HibernateHelper.getSessionFactory().getCurrentSession();
@@ -67,13 +67,13 @@ public class inspectionDAO {
 
             
 
-            List<Inspection> inspLog = getInspLogQuery.list();
+            List<IInspection> inspections = getInspLogQuery.list();
 
             
 
             session.getTransaction().commit();
 
-            return inspLog;
+            return inspections;
 
 
         }

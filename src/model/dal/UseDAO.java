@@ -8,9 +8,43 @@ import org.hibernate.Session;
 import model.facilityMaintenance.MaintenanceLog;
 import model.facilityUse.Usage;
 import model.facilityUse.UsageLog;
+import model.facilityUse.User;
 
 
 public class UseDAO {
+	
+	public void addUser(User user) {
+		Session session = HibernateHelper.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.save(user);
+		session.getTransaction().commit();
+	}
+	
+	public void deleteUser(User user) {
+		Session session = HibernateHelper.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.delete(user);
+		session.getTransaction().commit();
+	}
+	
+	public User retrieveUser(int userID) {
+		try{
+			Session session = HibernateHelper.getSessionFactory().getCurrentSession();
+			session.beginTransaction();
+
+			Query getUserQuery = session.createQuery("From USER where userID = :userID");		
+			getUserQuery.setString(userID, "userID");
+			
+			List<User> user = getUserQuery.list();
+
+			session.getTransaction().commit();
+			
+			return (User)user.get(0);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		return null;
+	}
 
 	public void addUsage(Usage usage) {
 		Session session = HibernateHelper.getSessionFactory().getCurrentSession();
@@ -26,13 +60,13 @@ public class UseDAO {
 		session.getTransaction().commit();
 	}
 	
-	public Usage retrieveUsage(int usageID) {
+	public Usage retrieveUsage(int userID) {
 		try{
 			Session session = HibernateHelper.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
 
-			Query getUsageQuery = session.createQuery("From USAGE where usageID = :usageID");		
-			getUsageQuery.setString(usageID, "usageID");
+			Query getUsageQuery = session.createQuery("From USAGE where userID = :userID");		
+			getUsageQuery.setString(userID, "userID");
 			
 			List<Usage> usage = getUsageQuery.list();
 
