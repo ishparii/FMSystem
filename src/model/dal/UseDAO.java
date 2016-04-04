@@ -36,7 +36,7 @@ public class UseDAO {
 
 			session.getTransaction().commit();
 			
-			return usage.get(0);
+			return (Usage)usage.get(0);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
