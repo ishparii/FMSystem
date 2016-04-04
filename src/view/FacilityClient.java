@@ -1,26 +1,28 @@
 package view;
 
-
-
-
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import model.facility.Address;
 import model.facility.Facility;
+import model.facility.IAddress;
+import model.facility.IManager;
 import model.facility.Manager;
 import model.facility.Unit;
 
 public class FacilityClient {
-	public static void main(String[]args) throws Exception{
-		
-		
+	public static void main(String[]args) throws Exception{		
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("application-context.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
         System.out.println("***************** Application Context instantiated! ******************");
         
-        Address address1= (Address) context.getBean("Address");
+		Facility unit1 = (Unit) context.getBean("unit");
+		unit1.getFacilityInfo();
+		unit1.setFacilityID(0001);
+		unit1.setFacilityName("Ashland");
+		unit1.setFacilityOwner("Pete");
+        
+        IAddress address1= unit1.getAddress();
         address1.setAddressID(0004);
 		address1.setUnitNumber(406);
 		address1.setStreetNumber(4400);
@@ -29,24 +31,16 @@ public class FacilityClient {
 		address1.setStateProvince("Illinois");
 		address1.setZipCode(60000);
 		
-		Manager manager1 = (Manager) context.getBean("Manager");
+		IManager manager1 = unit1.getManager();
 		manager1.setManagerID(000014);
 		manager1.setfName("Annie");
 		manager1.setlName("Doomer");
 		manager1.setCompanyName("Black.com");
 		manager1.setPhone("3124444444");
 		
-		Facility unit1 = (Unit) context.getBean("Unit");
-		unit1.setFacilityID(0001);
-		unit1.setFacilityName("Ashland");
-		unit1.setFacilityOwner("Pete");
-		unit1.setAddress(address1);
-		unit1.setManager(manager1);
-        
+		unit1.getFacilityInfo();
 		
-		
-				
-
+		((ClassPathXmlApplicationContext)context).close();
 
 }}
  
