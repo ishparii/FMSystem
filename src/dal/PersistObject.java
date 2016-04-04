@@ -73,8 +73,28 @@ public class PersistObject {
 		manager2.setCompanyName("Purple.com");
 		manager2.setPhone("3122222222");
 		
+		//unit1
+		Facility unit1 = new Unit();
+		unit1.setFacilityID(0001);
+		unit1.setFacilityName("Ashland");
+		unit1.setFacilityOwner("Pete");
+		unit1.setAddress(address1);
+		unit1.setManager(manager1);
 		
-		Facility unit = new Unit();
+		//unit2
+		Facility unit2 = new Unit();
+		unit1.setFacilityID(0002);
+		unit1.setFacilityName("Albion");
+		unit1.setFacilityOwner("Peter");
+		unit1.setAddress(address2);
+		unit1.setManager(manager2);
+		
+		//Floor
+		
+		
+		//Building
+		
+		// 
 		
 		// TODO
 		
@@ -88,7 +108,7 @@ public class PersistObject {
 			session.save(manager1);
 			session.save(manager2);
 			
-			session.save(unit);
+			session.save(unit1);
 			
 			
 			session.getTransaction().commit();
