@@ -7,6 +7,7 @@ import model.facilityMaintenance.IMaintenanceLog;
 import model.facilityUse.IUsageLog;
 
 public abstract class Facility {
+	
 	private int facilityID;
 	private String facilityName;
 	private String facilityOwner;

@@ -7,7 +7,7 @@ import org.hibernate.Session;
 
 import model.inspection.*;
 
-public class inspectionDAO {
+public class InspectionDAO {
 	public void addInspection(Inspection insp) {
 		Session session = HibernateHelper.getSessionFactory().getCurrentSession();
 		session.beginTransaction();
@@ -23,7 +23,7 @@ public class inspectionDAO {
 	}
 	
 	public Inspection retrieveInspection(int inspID) {
-		try{
+		try {
 			Session session = HibernateHelper.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
 
@@ -55,9 +55,8 @@ public class inspectionDAO {
 		session.getTransaction().commit();
 	}
 	
-	public List<IInspection> retriveInspectionLog(int inspLogID)
-    {
-        try{
+	public List<IInspection> retriveInspectionLog(int inspLogID) {
+        try {
             Session session = HibernateHelper.getSessionFactory().getCurrentSession();
             session.beginTransaction();
             
@@ -65,23 +64,14 @@ public class inspectionDAO {
             Query getInspLogQuery = session.createQuery("From INSPECTIONLOG where inspectionLogID=:inspectionLogID");
             getInspLogQuery.setString(inspLogID,"inspectionLogID");
 
-            
-
             List<IInspection> inspections = getInspLogQuery.list();
-
-            
 
             session.getTransaction().commit();
 
             return inspections;
-
-
-        }
-        catch(Exception e){
+        } catch(Exception e) {
         	e.printStackTrace();
-        
         }
         return null;
     }
-
 }

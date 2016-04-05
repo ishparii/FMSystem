@@ -6,27 +6,21 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 
 import model.facilityMaintenance.Cost;
-import model.facilityMaintenance.IMaintenance;
-import model.facilityMaintenance.IMaintenanceLog;
 import model.facilityMaintenance.Maintenance;
 import model.facilityMaintenance.MaintenanceLog;
 import model.facilityMaintenance.Request;
 import model.facilityMaintenance.Schedule;
 import model.facilityMaintenance.Service;
-import model.inspection.IInspection;
-import model.inspection.IInspectionLog;
-import model.inspection.Inspection;
 
 
 
-public class maintenanceDAO {
-	
-	public void addMaintReq(Request request){
-	Session session = HibernateHelper.getSessionFactory().getCurrentSession();
-	session.beginTransaction();
-	session.save(request);
-	session.getTransaction().commit();
-}
+public class MaintenanceDAO {
+	public void addMaintReq(Request request) {
+		Session session = HibernateHelper.getSessionFactory().getCurrentSession();
+		session.beginTransaction();
+		session.save(request);
+		session.getTransaction().commit();
+	}
 	
 	public void deleteMaintReq(Request request) {
 		Session session = HibernateHelper.getSessionFactory().getCurrentSession();
@@ -35,9 +29,8 @@ public class maintenanceDAO {
 		session.getTransaction().commit();
 	}
 	
-	
-	public Request retrieveMaintRequest(int requestID){
-		try{
+	public Request retrieveMaintRequest(int requestID) {
+		try {
 			Session session = HibernateHelper.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
 
@@ -52,9 +45,7 @@ public class maintenanceDAO {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		return null;
-		
-		
+		return null;	
 	}
 	
 	public void addMaintenance(Maintenance maint) {
@@ -72,7 +63,7 @@ public class maintenanceDAO {
 	}
 	
 	public Maintenance retrieveMaintenance(int maintID) {
-		try{
+		try {
 			Session session = HibernateHelper.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
 
@@ -93,7 +84,7 @@ public class maintenanceDAO {
 		
 	
 	public Schedule retrieveMaintSchedule(int MaintID) {
-		try{
+		try {
 			Session session = HibernateHelper.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
 
@@ -112,7 +103,7 @@ public class maintenanceDAO {
 	}
 	
 	public Service retrieveMaintService(int scheduleID) {
-		try{
+		try {
 			Session session = HibernateHelper.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
 
@@ -131,9 +122,8 @@ public class maintenanceDAO {
 	}
 	
 	
-	
 	public Cost retrieveCost(int serviceID) {
-		try{
+		try {
 			Session session = HibernateHelper.getSessionFactory().getCurrentSession();
 			session.beginTransaction();
 
@@ -165,35 +155,22 @@ public class maintenanceDAO {
 		session.getTransaction().commit();
 	}
 	
-	public List<MaintenanceLog> retriveMaintenanceLog(int maintLogID)
-    {
-        try{
+	public List<MaintenanceLog> retriveMaintenanceLog(int maintLogID) {
+        try {
             Session session = HibernateHelper.getSessionFactory().getCurrentSession();
             session.beginTransaction();
-            
 
-            Query getMaintLogQuery = session.createQuery("From MAINTENANCELOG where maintenanceLogID=:maintenanceLogID");
+            Query getMaintLogQuery = session.createQuery("From MAINTENANCELOG where maintenanceLogID = :maintenanceLogID");
             getMaintLogQuery.setString(maintLogID,"maintenanceLogID");
 
-            
-
             List<MaintenanceLog> maintLog = getMaintLogQuery.list();
-
-            
 
             session.getTransaction().commit();
 
             return maintLog;
-
-
-        }
-        catch(Exception e){
+        } catch(Exception e) {
         	e.printStackTrace();
-        
         }
         return null;
     }
-
-	
-
 }

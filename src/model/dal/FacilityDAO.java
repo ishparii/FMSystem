@@ -12,7 +12,7 @@ import model.facility.Manager;
 import model.facility.Unit;
 
 
-public class facilityDAO {
+public class FacilityDAO {
 	
 	public void addUnit(Facility facility) {
 		Session session = HibernateHelper.getSessionFactory().getCurrentSession();
