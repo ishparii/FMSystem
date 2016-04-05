@@ -13,7 +13,7 @@ import model.facility.Unit;
 public class FacilityClient {
 	public static void main(String[]args) throws Exception{		
 
-		ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/app-context.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("app-context.xml");
         System.out.println("***************** Application Context instantiated! ******************");
         
 		Facility unit1 = (Unit) context.getBean("unit");

@@ -1,5 +1,3 @@
-/model/
 /view/
-/dal/
-
 /META-INF/
+/app-context.xml

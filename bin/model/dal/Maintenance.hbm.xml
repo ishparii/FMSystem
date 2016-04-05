@@ -1,0 +1,20 @@
+<hibernate-mapping>
+	<class name = "model.facilityMaintenance.Maintenance" table = "MAINTENANCE">
+		<id name = "maintenance_ID" column = "REQUEST_ID">
+			<generator class = "foreign">
+				<param name = "property">request</param> 
+			</generator>
+		</id>
+		
+		<one-to-one name = "request" class = "model.facilityMaintenance.Request" 
+					constrained = "true"></one-to-one>
+		
+		<property name = "status" column = "STATUS" />
+		<property name = "priority" column = "PRIORITY" />
+		<property name = "maintenanceType" column = "MAINTENANCETYPE" />
+		<property name = "issueDescription" column = "ISSUEDESCRIPTION" />
+		
+		<one-to-one name = "schedule" class = "model.facilityMaintenance.Schedule"
+					cascade = "all"></one-to-one>
+	</class>
+</hibernate-mapping>

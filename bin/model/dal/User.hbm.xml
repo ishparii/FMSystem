@@ -1,0 +1,11 @@
+<hibernate-mapping>
+	<class name = "model.facilityUse.User" table = "USER">
+		<id name = "userID" column = "USER_ID">
+			<generator class = "assigned"></generator>
+		</id>
+		
+		<property name = "fName" column = "FNAME" />
+		<property name = "lName" column = "LNAME" />
+		<property name = "gender" column = "GENDER" />
+	</class>
+</hibernate-mapping>

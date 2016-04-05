@@ -1,0 +1,18 @@
+<hibernate-mapping>
+	<class name = "model.facilityMaintenance.Service" table = "SERVICE">
+		<id name = "serviceID" column = "REQUEST_ID">
+			<generator class = "foreign">
+				<param name = "property">schedule</param>
+			</generator>
+		</id>
+		
+		<one-to-one name = "schedule" class = "model.facilityMaintenance.Schedule"
+					constrained = "true"></one-to-one>
+		
+		<property name = "serviceTime" column = "SERVICETIME" />
+		<property name = "description" column = "DESCRIPTION" />
+		
+		<one-to-one name = "cost"  class = "model.facilityMaintenance.Cost"
+					cascade = "all"></one-to-one>
+	</class>
+</hibernate-mapping>

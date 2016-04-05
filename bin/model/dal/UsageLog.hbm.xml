@@ -1,0 +1,13 @@
+<hibernate-mapping>
+	<class name = "model.facilityUse.UsageLog" table = "USAGELOG">
+		<id name = "usageLogID" column = "USAGELOG_ID">
+			<generator class = "assigned"></generator>
+		</id>
+		
+		<list name = "usages" cascade = "all" table = "USAGE">
+			<key column = "USAGELOG_ID" />
+			<index column = "USAGE_INDEX" />
+			<one-to-many class = "Usage" />
+		</list>
+	</class>
+</hibernate-mapping>

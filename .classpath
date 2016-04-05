@@ -4,8 +4,9 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Hibernate"/>
-	<classpathentry kind="lib" path="C:/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/Spring"/>
-	<classpathentry kind="lib" path="C:/Users/Ilona/Desktop/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/annezhao/Softwares/Java/commons-logging-1.2/commons-logging-1.2-javadoc.jar"/>
+	<classpathentry kind="lib" path="/Users/annezhao/Softwares/Java/commons-logging-1.2/commons-logging-1.2.jar"/>
+	<classpathentry kind="lib" path="/Users/annezhao/Softwares/mysql/mysql-connector-java-5.1.38/mysql-connector-java-5.1.38-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

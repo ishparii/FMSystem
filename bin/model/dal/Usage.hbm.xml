@@ -1,0 +1,14 @@
+<hibernate-mapping>
+	<class name = "model.facilityUse.Usage" table = "USAGE">
+		<id name = "usageID" column = "USAGEID">
+			<generator class = "assigned"></generator>
+		</id>
+		
+		<property name = "usageType" column = "USAGETYPE" />
+		<property name = "startDate" column = "STARTDATE" />
+		<property name = "endDate" column = "ENDDATE" />
+		
+		<many-to-one name = "user" class = "model.facilityUse.User" column = "USER_ID"
+					 unique = "true" cascade = "all"></many-to-one>
+	</class>
+</hibernate-mapping>
